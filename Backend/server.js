@@ -4,12 +4,17 @@ const morgan = require('morgan')
 const cors = require('cors')
 const bodyParse = require('body-parser')
 
+const connectDB = require('./Config/db')
+
 const { readdirSync } = require('fs')
+
 // const productRouter = require('./Routes/product')
 // const authRouter = require('./Routes/auth')
 
 
 const app = express();
+
+connectDB()
 
 app.use(morgan('dev'))
 app.use(cors())
