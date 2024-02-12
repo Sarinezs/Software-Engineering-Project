@@ -1,5 +1,10 @@
 import React, {useState, useEffect} from 'react'
 import axios from 'axios'
+import { Link } from 'react-router-dom'
+import { Remove } from '../Functions/product'
+import { create } from '../Functions/product'
+import { getdata } from '../Functions/product'
+
 const FormProduct = () => {
 
     const [data, setData] = useState([])
@@ -10,7 +15,7 @@ const FormProduct = () => {
     }, [])
 
     const loadData = async () =>{
-        await axios.get('http://localhost:5000/api/product')
+        getdata()
             .then((res)=> setData(res.data))
             .catch((err) => console.log(err))
     }
@@ -25,7 +30,7 @@ const FormProduct = () => {
 
     const handleSubmit = async (e) =>{
         e.preventDefault()
-        await axios.post('http://localhost:5000/api/product', form)
+        create(form)
             .then(res => {
                 console.log(res.data)
                 loadData()
@@ -34,8 +39,7 @@ const FormProduct = () => {
     }
 
     const handleRemove = async (id) =>{
-        console.log(id)
-        await axios.delete('http://localhost:5000/api/product/'+id ) // บวก string
+            Remove(id)// บวก string
             .then((res) => {
                 console.log(res)
                 loadData()
@@ -61,6 +65,7 @@ const FormProduct = () => {
                     <th scope='col'>detail</th>
                     <th scope='col'>price</th>
                     <th scope='col'>action</th>
+                    <th scope='col'>edit</th>
                 </tr>
             </thead>
             <tbody>
@@ -73,6 +78,12 @@ const FormProduct = () => {
                             <td>{item.price}</td>
                             {/* <td onClick={() => handleRemove(item._id)}>delete</td> */}
                             <button onClick={() =>handleRemove(item._id)}>delete</button>
+                            <button>
+                                <Link to={'/edit/' + item._id}>
+                                edit
+                                </Link>
+                                    
+                            </button>
                             
                         </tr>
                     ) 
