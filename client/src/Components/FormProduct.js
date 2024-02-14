@@ -50,7 +50,7 @@ const FormProduct = () => {
   return (
     <div>
 
-    <form on onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit}>
         <input type='text' name='name' onChange={e => handleChange(e)} placeholder='name' /><br/>
         <input type='text' name='detail' onChange={e => handleChange(e)} placeholder='detail' /><br/>
         <input type='number' name='price' onChange={e => handleChange(e)} placeholder='price' /><br/>

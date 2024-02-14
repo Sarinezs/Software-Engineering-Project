@@ -8,7 +8,7 @@ export const create = async(data) =>
     await axios.post(process.env.REACT_APP_API + '/product', data)
 
 export const getdata = async(data) =>{
-    return await axios.get(process.env.REACT_APP_API + '/product')
+    return await axios.get(process.env.REACT_APP_API + '/product') // pathข้างหลังเอาไว้เชื่อมกับ backend
 }
 
 export const read = async(id) =>{

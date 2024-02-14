@@ -2,6 +2,9 @@ const express = require('express')
 const router = express.Router()
 const { read, list, create, update, remove} = require('../Controllers/product')
 
+// middleware
+const { auth } = require('../Middleware/auth')
+
 //http://localhost:5000/api/product
 router.get('/product', list)
 router.get('/product/:id', read)
