@@ -1,27 +1,27 @@
 import './css/login.css';
-import React, {useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import { Regis } from '../Functions/register';
 
 const Login = () => {
 
-    const [form, setForm] = useState({})
+  const [form, setForm] = useState({})
 
-    const handleChange = (e) =>{
-      console.log(e.target.name, e.target.value)
-      setForm({
-        ...form,
-        [e.target.name]: e.target.value
+  const handleChange = (e) => {
+    console.log(e.target.name, e.target.value)
+    setForm({
+      ...form,
+      [e.target.name]: e.target.value
+    })
+  }
+
+  const regis_submit = async (e) => {
+    e.preventDefault()
+    Regis(form)
+      .then((res) => {
+        console.log(res.data)
       })
-    }
-
-    const regis_submit = async (e) =>{
-      e.preventDefault()
-      Regis(form)
-        .then((res) => {
-          console.log(res.data)
-        })
-        .catch((err) => console.log(err))
-    }
+      .catch((err) => console.log(err))
+  }
 
 
 
@@ -33,7 +33,7 @@ const Login = () => {
             ลงทะเบียน
           </h1>
           <div class="input-container">
-            <input type="text" onChange={e => handleChange(e)}  name="firstname" id="firstname" placeholder="Firstname" required />
+            <input type="text" onChange={e => handleChange(e)} name="firstname" id="firstname" placeholder="Firstname" required />
           </div>
 
           <div class="input-container">
@@ -41,7 +41,7 @@ const Login = () => {
           </div>
 
           <div class="input-container">
-            <input type="text" onChange={e => handleChange(e)}  name="phone" id="phone" placeholder="Phone number" required />
+            <input type="text" onChange={e => handleChange(e)} name="phone" id="phone" placeholder="Phone number" required />
           </div>
 
           <div class="input-container">
@@ -49,7 +49,7 @@ const Login = () => {
           </div>
 
           <div class="input-container">
-            <input type="password" onChange={e => handleChange(e)}  name="password" id="password" placeholder="Password" required />
+            <input type="password" onChange={e => handleChange(e)} name="password" id="password" placeholder="Password" required />
           </div>
 
 
