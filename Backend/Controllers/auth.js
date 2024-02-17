@@ -6,6 +6,7 @@ exports.register = async (req, res) => {
     try {
         // 1. CheckUser
         const { name, password } = req.body
+        console.log(req.body)
 
         var user = await User.findOne({ name })
 
@@ -30,7 +31,7 @@ exports.register = async (req, res) => {
     }
     catch (err) {
         console.log(err)
-        res.status(500).send('Server Error')
+        res.status(500).send('register error')
     }
 }
 
@@ -43,7 +44,8 @@ exports.login = async (req, res) => {
         if(user){
             const isMatch = await bcrypt.compare(password, user.password)
             if(!isMatch){
-                return res.status(400).send('password Invalid!!')
+                // console.log("password invalid")
+                return res.send('password Invalid!!').status(400)
             }
 
             // 2.Payload
@@ -61,7 +63,7 @@ exports.login = async (req, res) => {
             })
             
         }else{
-            return res.status(400).send('User not found!!!')
+            return res.send('User not found!!!').status(400)
         }
     }
     catch (err) {
