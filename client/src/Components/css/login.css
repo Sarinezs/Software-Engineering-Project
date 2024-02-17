@@ -1,0 +1,59 @@
+.login-form {
+    max-width: 500px;
+    margin: 0 auto; /* ย้ายกรอบมาอยู่กลางจอ */
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .form-title {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .input-container {
+    margin-bottom: 15px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  input {
+    width:80%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+  
+  input[type="submit"] {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  
+  input[type="submit"]:hover {
+    background-color: #45a049;
+  }
+  
+  .required {
+    color: red;
+  }
+  
+  p {
+    text-align: center;
+  }
+  
+  p a {
+    color: #4caf50;
+    text-decoration: none;
+  }
+  
+  p a:hover {
+    text-decoration: underline;
+  }

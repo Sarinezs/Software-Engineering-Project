@@ -6,6 +6,7 @@ import { create } from '../Functions/product'
 import { getdata } from '../Functions/product'
 import { test_register } from '../Functions/product'
 
+
 const FormProduct = () => {
 
     const [data, setData] = useState([])

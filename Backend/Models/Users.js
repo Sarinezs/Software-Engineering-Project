@@ -1,10 +1,13 @@
 const mongoose = require('mongoose')
 
-const userSchema = mongoose.Schema({
-    name: String,
-    password:{
-        type:String
-    }
+const UserSchema = mongoose.Schema({
+    firstname: String,
+    lastname: String,
+    phone: String,
+    email: String,
+    password: String
+
+
 }, { timestamps: true})
 
-module.exports = mongoose.model('users', userSchema) // ชื่อตาราง กับ schema 
+module.exports = mongoose.model('Users', UserSchema)

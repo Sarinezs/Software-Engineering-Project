@@ -5,6 +5,7 @@ const {register, login, Checkuser} = require('../Controllers/auth')
 
 
 
+
 // http://localhost:5000/api/register
 router.post('/register', register)
 

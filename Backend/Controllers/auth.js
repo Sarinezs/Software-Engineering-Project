@@ -1,3 +1,4 @@
+// const User = require('../Models/usertest')
 const User = require('../Models/Users')
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
@@ -5,19 +6,41 @@ const jwt = require('jsonwebtoken')
 exports.register = async (req, res) => {
     try {
         // 1. CheckUser
-        const { name, password } = req.body
-        console.log(req.body)
+        // const { name, password } = req.body
+        // console.log(req.body)
+        
+        // var user = await User.findOne({ name })
+        // 2.Ecrypt
+        // const salt = await bcrypt.genSalt(10)
+        // user = new User({
+        //     name,
+        //     password
+        // })
+        // user.password = await bcrypt.hash(password, salt)
 
-        var user = await User.findOne({ name })
+        // // 3.Save
+        // await user.save()
+        // res.send('Register Success')
+
+        // console.log(user)
+        // // res.send(req.body)
+
+        
+        const { firstname, lastname, phone, email, password } = req.body
+        console.log(req.body)
+        var user = await User.findOne({ email })
 
         if (user) {
-            return res.send('User Already Exists!!!').status(400)
+            return res.send('Your email Already use.').status(400)
         }
 
         // 2.Ecrypt
         const salt = await bcrypt.genSalt(10)
         user = new User({
-            name,
+            firstname,
+            lastname,
+            phone,
+            email,
             password
         })
         user.password = await bcrypt.hash(password, salt)
@@ -31,7 +54,7 @@ exports.register = async (req, res) => {
     }
     catch (err) {
         console.log(err)
-        res.status(500).send('register error')
+        res.send('register error').status(500)
     }
 }
 
