@@ -20,14 +20,12 @@ const Register = () => {
     e.preventDefault()
     Regis(form)
       .then((res) => {
-        navi('/Login')
+        navi('/Loginasfhafhdhf')
         // console.log(res.data)
         // alert(res.data)
       })
       .catch((err) => console.log(err))
   }
-
-
 
   return (
     <div>
