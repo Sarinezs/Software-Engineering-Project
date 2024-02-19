@@ -1,0 +1,77 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* ทำให้ container อยู่ในส่วนกลางของหน้าจอ */
+    margin: 0;
+    
+  }
+  
+  .header {
+    background-color: #fff;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 15px 0;
+  }
+  
+  .header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .form-container {
+    max-width: 400px;
+    width: 100%; /* ทำให้เต็มความกว้างของ container */
+    margin: auto;
+    padding: 70px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  label {
+    margin-bottom: 5px;
+  }
+  
+  input {
+    width: 95%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    
+  }
+  
+  button {
+    width: 50%;
+    background-color: #3498db;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-left: 25%;
+
+    
+  }
+  
+  button:hover {
+    background-color: #2980b9;
+    
+  }
+  
+  p {
+    text-align: center;
+    margin-top: 10px;
+  }
+  

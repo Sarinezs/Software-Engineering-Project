@@ -1,0 +1,84 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    margin: 0;
+    width: 90%;
+  }
+  header {
+    background-color: #3498db;
+    color: white;
+    text-align: left;
+    width: 417%; /* ทำให้ header เต็มความกว้างของหน้าจอ */
+    padding: 20px;
+    margin: 0; /* ลบ margin เพื่อให้ header อยู่ทางซ้ายสุด */
+    margin-left: -515px; /* เพิ่ม margin-left เพื่อเว้นระยะห่างไปทางขวา */
+  }
+  
+  header h1 {
+    margin: 0;
+  }
+
+  
+  .login-form {
+    max-width: 100%;
+    width: 100%;
+    padding: 80px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+  }
+  
+  .form-title {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+.input-container {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input {
+  width:80%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+input[type="submit"] {
+  width: 50%;
+  background-color: #151b54;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #151b54;
+}
+
+.required {
+  color: red;
+}
+
+p {
+  text-align: center;
+}
+
+p a {
+  color: #151b54;
+  text-decoration: none;
+}
+
+p a:hover {
+  text-decoration: underline;
+}

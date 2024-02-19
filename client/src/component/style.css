@@ -1,0 +1,226 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,700;1,400&display=swap');
+
+:root {
+    --black: #000;
+    --gray: #363636;
+    --white: #fff;
+    --cream: #ffffe0;
+    --test: #101010;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+nav {
+    background-color: var(--white);
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1.5%;
+
+    & .menu_left {
+        display: flex;
+        list-style: none;
+        align-items: center;
+        
+        & li {
+
+            & a {
+                position: relative;
+                text-decoration: none;
+                color: var(--gray);
+                letter-spacing: 0.5px;
+                /*text-transform: uppercase;*/
+                padding: 0 10px;
+            
+            }
+
+            & a::after {
+                content: "";
+                position: absolute;
+                background-color: var(--gray);
+                height: 1px;
+                left: 0;
+                bottom: -1px;
+                transition: 0.3s;
+                width: 0%;
+            }
+
+            & a:hover::after{
+                width: 100%;
+            }
+        }
+    }
+
+    & .menu_right {
+        display: inline-flex;
+        list-style: none;
+        align-items: center;
+        padding-right: 32px;
+
+        & li {
+
+            & a {
+                text-decoration: none;
+                color: var(--gray);
+                padding: 15px;
+                text-transform: uppercase;
+                transition: all 0.3s ease;
+            }
+            & a:hover {
+                background: var(--white);
+            }
+        }
+
+        & li:nth-child(1) {
+            
+            & a {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 8px;
+
+                & svg {
+                    width: 28px;
+                    height: 28px;
+                }
+            }
+        }
+
+        & li:nth-child(2) {
+            
+            & a {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 5px;
+
+
+                & svg {
+                    width: 38px;
+                    height: 38px;
+                    
+                }
+            }
+        }
+
+        & li:nth-child(3) {
+            
+            & a {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 5px;
+
+                & svg {
+                    width: 30px;
+                    height: 30px;
+                    
+                }
+            }
+        }
+    }
+
+}
+
+.drop-menu {
+    list-style: none;
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    background-color: var(--black);
+}
+.drop-menu ul {
+    display: block;
+    margin: 10px;
+}
+.drop-menu ul li {
+    width: 150px;
+    padding: 10px;
+    
+}
+
+
+.logo {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    padding: 32px;
+}
+
+
+
+.container_ad {
+    width: 100%;
+    height: 100%;
+    
+    
+}
+.banner_ad {
+    width: 100%;
+    height: 85vh;
+    background-image: url(https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/if_w_gt_1920,w_1920/ss24_bad_bunny_response_cl_white_launch_non_confirmed_hp_mh_d_8116d688db.jpg);
+    background-size: cover;
+    background-position: 69%;
+    position: fixed;
+    
+    
+}
+.banner_ad-text {
+    padding-top: 250px;
+    margin-left: 120px;
+    
+    
+}
+.banner_ad-text h2 {
+    font-weight: bold;
+    font-size: 25px;
+    color: var(--white);
+    
+}
+
+
+#btn_ad {
+    background: none;
+    border: 2px solid #fff;
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+    /*text-transform: uppercase;*/
+    padding: 12px 20px;
+    margin-top: 10px;
+    min-width: 200px;
+    cursor: pointer;
+    transition: color 0.4s linear;
+    position: relative;
+}
+
+#btn_ad:hover {
+    color: #fff;
+}
+
+#btn_ad::before { 
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    z-index: -1;
+    transition: transform 0.5s;
+    transform-origin: 0 0;
+    transition-timing-function: cubic-bezier(0.5,1.6,0.4,0.7);
+}
+
+#btn_ad::before {
+    transform: scaleX(0);
+}
+#btn_ad:hover::before {
+    transform: scaleX(1);
+}
