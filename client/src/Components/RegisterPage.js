@@ -20,7 +20,7 @@ const Register = () => {
     e.preventDefault()
     Regis(form)
       .then((res) => {
-        navi('/Loginasfhafhdhf')
+        navi('/Login')
         // console.log(res.data)
         // alert(res.data)
       })
@@ -43,11 +43,11 @@ const Register = () => {
           </div>
 
           <div class="input-container">
-            <input type="text" onChange={e => handleChange(e)} name="phone" id="phone" placeholder="Phone number" required />
+            <input type="tel" onChange={e => handleChange(e)} name="phone" id="phone" placeholder="Phone number" required />
           </div>
 
           <div class="input-container">
-            <input type="text" onChange={e => handleChange(e)} name="email" id="email" placeholder="Email" required />
+            <input type="email" onChange={e => handleChange(e)} name="email" id="email" placeholder="Email" required />
           </div>
 
           <div class="input-container">

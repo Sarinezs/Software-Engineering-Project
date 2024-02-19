@@ -7,6 +7,8 @@ import FormEditProduct from './Components/FormEditProduct';
 import Register from './Components/RegisterPage';
 import Login from './Components/LoginPage';
 
+import Home from './Components/HomePage'
+
 // Routes
 import AdminRoutes from './Routes/AdminRoutes';
 
