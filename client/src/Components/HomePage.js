@@ -4,7 +4,7 @@ import './css/HomePage.css'
 const product = () => {
   return (
     <div>
-    <nav>
+    <nav >
         <ul class="menu_left">
             <li>
                 <a href="#"> 
