@@ -4,13 +4,18 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import FormProduct from './Components/FormProduct';
 import FormEditProduct from './Components/FormEditProduct';
 
-import Register from './Components/RegisterPage';
-import Login from './Components/LoginPage';
+// import Register from './Components/RegisterPage';
+// import Login from './Components/LoginPage';
+
+import Register from './Components/page/auth/Register';
+import Login from './Components/page/auth/Login';
 
 import Home from './Components/HomePage'
 
 // Routes
 import AdminRoutes from './Routes/AdminRoutes';
+import TestRedux1 from './Components/TestRedux1';
+import TestRedux2 from './Components/TestRedux2';
 
 function App() {
 
@@ -18,8 +23,6 @@ function App() {
     <BrowserRouter>
     <div>
         <Routes>
-          
-          
           <Route path='/Register' element={<Register />}/>
           <Route path='/Login' element={<Login />}/>
 
@@ -38,14 +41,10 @@ function App() {
               </AdminRoutes>
 
             }/>
-
-
-
-
         </Routes>
-
-        
-        
+        {/* <TestRedux1 />
+        <hr />
+        <TestRedux2 /> */}
     </div>
     </BrowserRouter>
   );
