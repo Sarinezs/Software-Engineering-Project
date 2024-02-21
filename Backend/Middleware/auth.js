@@ -3,6 +3,7 @@ const jwt = require('jsonwebtoken')
 exports.auth = async (req, res, next) => {
     try{
         const token = req.headers["authtoken"]
+        console.log(token)
         if(!token){ // ไม่มี token
             return res.status(401).send('No token')
         }
