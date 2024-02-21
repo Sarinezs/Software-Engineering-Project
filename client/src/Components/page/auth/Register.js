@@ -1,14 +1,18 @@
 import React, { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
+import '../../css/RegisterPage.css'
 
 import { register } from '../../../Functions/auth'
 
 const Register = () => {
 
+    const navi = useNavigate()
+
     const handleSubmit = (event) => {
         event.preventDefault();
         const data = new FormData(event.currentTarget);
 
-        const tam = {
+        const list_data = {
             firstname: data.get("firstname"),
             lastname: data.get("lastname"),
             phonenumber: data.get("phonenumber"),
@@ -16,10 +20,16 @@ const Register = () => {
             password: data.get("password")
         }
 
-        register(tam)
+        register(list_data)
         .then((res) => {
             console.log(res)
-            alert(res.data)
+            if(res.data === 'Register Success'){
+              alert(res.data)
+              navi('/Login')
+            }
+            else{
+              alert(res.data)
+            }
 
         })
         .catch((err) =>{
@@ -32,8 +42,8 @@ const Register = () => {
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <div class="login-form">
-          <h1 class="form-title">
+        <div class="register-form">
+          <h1 class="register-form-title">
             ลงทะเบียน
           </h1>
           <div class="input-container">

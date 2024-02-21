@@ -1,21 +1,20 @@
 /* Add these styles to your existing product.css */
 
-body {
-    width: 50%;
-    margin: 0;
+.head {
+    width: 100%;
+    margin-left: auto;
     padding: 0;
     font-family: 'Roboto', sans-serif;
 }
 
 nav {
-    width: 185%;
-    top: -355px;
-    position: relative;
+    width: auto;
     background-color: #fff;
     height: 80px;
     display: flex;
     justify-content: space-between;
-    padding: 0 2.5%;
+    align-items: center;
+    padding: 0 1.5%;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add box shadow for a subtle effect */
 }
 
@@ -23,10 +22,12 @@ nav {
     display: flex;
     list-style: none;
     align-items: center;
+    
 }
 
 .menu_left li {
     margin-right: 25px;
+    
 }
 
 .menu_left a {
@@ -57,7 +58,7 @@ nav {
 .menu_right svg {
     width: 24px;
     height: 24px;
-    fill: #d32525;
+    fill: #363636;
     transition: fill 0.3s ease; /* Add transition effect on hover */
 }
 
@@ -69,7 +70,7 @@ nav {
 .drop-menu {
     list-style: none;
     display: none;
-    position: relative;
+    position: absolute;
     left: 0;
     top: 100%;
     background-color: #fff;
@@ -89,4 +90,34 @@ nav {
 
 .menu_left li:hover .drop-menu {
     display: block;
+}
+
+.menu_left li a {
+    position: relative;
+    text-decoration: none;
+    color: #363636;
+    font-weight: bold;
+    transition: color 0.3s ease; /* Add transition effect on color change */
+}
+
+.menu_left li a:hover {
+    color: #000; /* Change the color on hover */
+}
+
+.menu_left li:not(.logo) a::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px; /* Adjust the thickness of the underline */
+    background-color: #000; /* Set the color of the underline */
+    bottom: 0;
+    left: 0;
+    transform: scaleX(0); /* Initially set the scale to 0 for the transition effect */
+    transform-origin: bottom right;
+    transition: transform 0.3s ease; /* Add transition effect on scale change */
+}
+
+.menu_left li:not(.logo) a:hover::after {
+    transform: scaleX(1); /* Increase the scale on hover */
+    transform-origin: bottom left;
 }

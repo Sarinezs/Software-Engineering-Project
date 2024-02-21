@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import '../../css/LoginPage.css'
 
 import { login } from '../../../Functions/auth'
 
@@ -8,12 +9,12 @@ const Login = () => {
         event.preventDefault();
         const data = new FormData(event.currentTarget);
 
-        const tam = {           
+        const list_data = {           
             email: data.get("email"),
             password: data.get("password")
         }
 
-        login(tam)
+        login(list_data)
         .then((res) => {
             console.log(res)
             alert(res.data)

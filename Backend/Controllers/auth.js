@@ -75,7 +75,7 @@ exports.login = async (req, res) => {
 
             var payload = {
                 user:{
-                    name:user.name
+                    email:user.email
                 }
             }
 

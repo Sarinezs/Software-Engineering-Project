@@ -23,8 +23,9 @@ function App() {
     <BrowserRouter>
     <div>
         <Routes>
-          <Route path='/Register' element={<Register />}/>
+          <Route path='/' element={<Register />}/>
           <Route path='/Login' element={<Login />}/>
+          <Route path='/Home' element={<Home />}/>
 
           
             <Route path='/admin/viewable' element={

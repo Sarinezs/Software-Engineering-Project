@@ -30,7 +30,7 @@ const Register = () => {
   return (
     <div>
       <form onSubmit={regis_submit}>
-        <div class="login-form">
+        <div class="register-form">
           <h1 class="form-title">
             ลงทะเบียน
           </h1>
