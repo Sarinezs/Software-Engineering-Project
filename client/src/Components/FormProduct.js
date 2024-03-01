@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import { Remove } from '../Functions/product'
 import { create } from '../Functions/product'
 import { getdata } from '../Functions/product'
-import { test_register } from '../Functions/product'
+// import { test_register } from '../Functions/product'
 
 
 const FormProduct = () => {
@@ -49,14 +49,14 @@ const FormProduct = () => {
             .catch((err) => console.log(err))
     }
 
-    const regis = async (e) =>{
-        e.preventDefault()
-        test_register(form)
-            .then(res =>{
-                console.log(res.data)
-                loadData()
-            })
-    }
+    // const regis = async (e) =>{
+    //     e.preventDefault()
+    //     test_register(form)
+    //         .then(res =>{
+    //             console.log(res.data)
+    //             loadData()
+    //         })
+    // }
 
   return (
     <div>
@@ -65,16 +65,14 @@ const FormProduct = () => {
         <input type='text' name='name' onChange={e => handleChange(e)} placeholder='name' /><br/>
         {/* name=" " อันนี้คือชื่อfield */}
         <input type='text' name='password' onChange={e => handleChange(e)} placeholder='detail' /><br/> 
-        {/* <input type='number' name='price' onChange={e => handleChange(e)} placeholder='price' /><br/> */}
+        <input type='number' name='price' onChange={e => handleChange(e)} placeholder='price' /><br/>
         <button>Submit</button>
     </form>
-    <form onSubmit={regis}>
+    {/* <form onSubmit={regis}>
         <input type='text' name='name' onChange={e => handleChange(e)} placeholder='name' /><br/>
-        {/* name=" " อันนี้คือชื่อfield */}
         <input type='text' name='password' onChange={e => handleChange(e)} placeholder='detail' /><br/> 
-        {/* <input type='number' name='price' onChange={e => handleChange(e)} placeholder='price' /><br/> */}
         <button>register</button>
-    </form>
+    </form> */}
 
         <table className='table'>
             <thead>
@@ -98,7 +96,7 @@ const FormProduct = () => {
                             {/* <td onClick={() => handleRemove(item._id)}>delete</td> */}
                             <button onClick={() =>handleRemove(item._id)}>delete</button>
                             <button>
-                                <Link to={'/edit/' + item._id}>
+                                <Link to={'/product/' + item._id}>
                                 edit
                                 </Link>
                                     

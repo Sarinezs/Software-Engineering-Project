@@ -1,4 +1,4 @@
-import './css/RegisterPage.css';
+// import './css/RegisterPage.css';
 import React, { useState, useEffect } from 'react'
 import { Regis } from '../Functions/authentication';
 import { useNavigate } from 'react-router-dom';

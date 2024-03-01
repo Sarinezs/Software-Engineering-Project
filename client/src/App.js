@@ -7,6 +7,10 @@ import FormEditProduct from './Components/FormEditProduct';
 // import Register from './Components/RegisterPage';
 // import Login from './Components/LoginPage';
 
+import HeaderBar from './Layout/HeaderBar';
+import { CssBaseline, Box, Button } from '@mui/material';
+import SideBar from './Layout/SideBar';
+
 import Register from './Components/page/auth/Register';
 import Login from './Components/page/auth/Login';
 
@@ -21,14 +25,13 @@ function App() {
 
   return (
     <BrowserRouter>
-    <div>
-        <Routes>
-          <Route path='/' element={<Register />}/>
-          <Route path='/Login' element={<Login />}/>
-          <Route path='/Home' element={<Home />}/>
-
+    <>
+    <CssBaseline />
+        {/* <Routes>
           
-            <Route path='/admin/viewable' element={
+        </Routes> */}
+          
+            {/* <Route path='/admin/viewable' element={
               <AdminRoutes>
                 <FormProduct />
               </AdminRoutes>
@@ -42,11 +45,32 @@ function App() {
               </AdminRoutes>
 
             }/>
-        </Routes>
+        </Routes> */}
+
+        
+        <div className='app'>
+          <SideBar />
+              <main>
+                {/* <HeaderBar /> */}
+                  <div>
+                    <Box m="20px">
+                    <Routes>
+                      <Route path='/' element={<Register />}/>
+                      <Route path='/Login' element={<Login />}/>
+                      <Route path='/Home' element={<Home />}/>
+                      <Route path='/product' element={<FormProduct />}/>
+                      <Route path='/product/:id' element={<FormEditProduct />}/>
+                      </Routes>
+                    </Box>
+                  </div>
+              </main> 
+            </div>
+          {/* <Button variant="contained">Contained</Button> */}
+        
+        </>
         {/* <TestRedux1 />
         <hr />
         <TestRedux2 /> */}
-    </div>
     </BrowserRouter>
   );
 }
