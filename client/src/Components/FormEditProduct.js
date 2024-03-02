@@ -40,7 +40,7 @@ const FormEditProduct = () => {
         update(params.id, data)
             .then(res => {
                 console.log(res.data)
-                navigate('/')
+                navigate('/product')
             })
             .catch((err) => console.log(err))
     }

@@ -9,15 +9,8 @@ import {
 import { Box, IconButton, Typography, useTheme, Badge } from "@mui/material";
 import { Link } from "react-router-dom";
 
-import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import PeopleOutlinedIcon from "@mui/icons-material/PeopleOutlined";
-import ReceiptOutlinedIcon from "@mui/icons-material/ReceiptOutlined";
-import CalendarTodayOutlinedIcon from "@mui/icons-material/CalendarTodayOutlined";
-import BarChartOutlinedIcon from "@mui/icons-material/BarChartOutlined";
-import PieChartOutlineOutlinedIcon from "@mui/icons-material/PieChartOutlineOutlined";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
-import MapOutlinedIcon from "@mui/icons-material/MapOutlined";
-import TableViewIcon from '@mui/icons-material/TableView';
 const SideBar = () => {
   const [isCollapsed, setisCollapsed] = useState(false);
   const [toggled, setToggled] = useState(false);
@@ -35,9 +28,9 @@ const SideBar = () => {
         toggled={toggled}
         onBackdropClick={() => setToggled(false)}
         onBreakPoint={setBroken}
-        image="/assets/17372.jpg"
+        // image="/assets/17372.jpg"
         breakPoint="md"
-        style={{ height: "100%" }}
+        style={{ height: "100%", marginTop: "auto"}}
       >
         <div
           style={{ display: "flex", flexDirection: "column", height: "100%" }}
@@ -66,7 +59,7 @@ const SideBar = () => {
                   </Box>
                 )}
               </MenuItem>
-              {!isCollapsed && (
+              {/* {!isCollapsed && (
                 <Box mb="25px">
                   <Box
                     display="flex"
@@ -86,13 +79,13 @@ const SideBar = () => {
                     <Typography>DEV </Typography>
                   </Box>
                 </Box>
-              )}
+              )} */}
 
-              <Link to="/admin" className="menu-bars">
+              {/* <Link to="/admin" className="menu-bars">
                 <MenuItem icon={<HomeOutlinedIcon />}>Dashboard</MenuItem>
-              </Link>
+              </Link> */}
 
-              <SubMenu icon={<MapOutlinedIcon />} label="Data">
+              {/* <SubMenu icon={<MapOutlinedIcon />} label="Data">
                 <Link to={"/admin/viewtable"} className="menu-bars">
                   <MenuItem icon={<TableViewIcon />}>
                     {" "}
@@ -103,13 +96,16 @@ const SideBar = () => {
                   {" "}
                   Line charts
                 </MenuItem>
-              </SubMenu>
+              </SubMenu> */}
 
               <SubMenu label="Manage" icon={<PeopleOutlinedIcon />}>
-                <Link to={"/admin/manage"} className="menu-bars">
+                <Link to={"/Showuser"} className="menu-bars">
                   <MenuItem>User</MenuItem>
                 </Link>
-                <MenuItem> Admin</MenuItem>
+                <Link to={"/product"} className="menu-bars">
+                <MenuItem> Product</MenuItem>
+                </Link>
+                
               </SubMenu>
             </Menu>
 

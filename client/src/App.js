@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import FormProduct from './Components/FormProduct';
 import FormEditProduct from './Components/FormEditProduct';
+import Showlistuser from './Components/page/admin/Showuser';
 
 // import Register from './Components/RegisterPage';
 // import Login from './Components/LoginPage';
@@ -14,7 +15,8 @@ import SideBar from './Layout/SideBar';
 import Register from './Components/page/auth/Register';
 import Login from './Components/page/auth/Login';
 
-import Home from './Components/HomePage'
+// import Home from './Components/HomePage'
+import Home from './Components/page/user/HomePage'
 
 // Routes
 import AdminRoutes from './Routes/AdminRoutes';
@@ -27,9 +29,13 @@ function App() {
     <BrowserRouter>
     <>
     <CssBaseline />
-        {/* <Routes>
-          
-        </Routes> */}
+        <div>
+        <Routes>
+          <Route path='/' element={<Register />}/>
+          <Route path='/Login' element={<Login />}/>
+          <Route path='/Home' element={<Home />}/>
+        </Routes>
+        </div>
           
             {/* <Route path='/admin/viewable' element={
               <AdminRoutes>
@@ -53,11 +59,10 @@ function App() {
               <main>
                 {/* <HeaderBar /> */}
                   <div>
-                    <Box m="20px">
+                    <Box m="50px">
                     <Routes>
-                      <Route path='/' element={<Register />}/>
-                      <Route path='/Login' element={<Login />}/>
-                      <Route path='/Home' element={<Home />}/>
+                      
+                      <Route path='/showuser' element={<Showlistuser />}/>
                       <Route path='/product' element={<FormProduct />}/>
                       <Route path='/product/:id' element={<FormEditProduct />}/>
                       </Routes>

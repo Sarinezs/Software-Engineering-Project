@@ -1,21 +1,23 @@
-/* Add these styles to your existing product.css */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,700;1,400&display=swap');
 
-.head {
-    width: 100%;
-    margin-left: auto;
+.product {
+    /* width: 50%;
+    margin: 0;
     padding: 0;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto', sans-serif; */
 }
 
-nav {
-    width: auto;
+.navi {
+    width: 100%;
     background-color: #fff;
     height: 80px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 1.5%;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add box shadow for a subtle effect */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+    /* Add box shadow for a subtle effect */
+    
 }
 
 .menu_left {
@@ -58,13 +60,10 @@ nav {
 .menu_right svg {
     width: 24px;
     height: 24px;
-    fill: #363636;
     transition: fill 0.3s ease; /* Add transition effect on hover */
 }
 
-.menu_right a:hover svg {
-    fill: #000; /* Change the color on hover */
-}
+
 
 /* Dropdown menu styles */
 .drop-menu {
