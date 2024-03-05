@@ -1,8 +1,11 @@
 import './App.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
-import FormProduct from './Components/FormProduct';
-import FormEditProduct from './Components/FormEditProduct';
+// import FormProduct from './Components/FormProduct';
+// import FormEditProduct from './Components/FormEditProduct';
+import FormProduct from './Components/page/admin/Showproduct';
+import FormEditProduct from './Components/page/admin/Editproduct';
+
 import Showlistuser from './Components/page/admin/Showuser';
 
 // import Register from './Components/RegisterPage';
@@ -17,6 +20,7 @@ import Login from './Components/page/auth/Login';
 
 // import Home from './Components/HomePage'
 import Home from './Components/page/user/HomePage'
+import Cart from './Components/page/user/Cart';
 
 // Routes
 import AdminRoutes from './Routes/AdminRoutes';
@@ -34,6 +38,7 @@ function App() {
           <Route path='/' element={<Register />}/>
           <Route path='/Login' element={<Login />}/>
           <Route path='/Home' element={<Home />}/>
+          <Route path='/Cart' element={<Cart />}/>
         </Routes>
         </div>
           

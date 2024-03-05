@@ -52,7 +52,7 @@ const SideBar = () => {
                     alignItems="center"
                     ml="15px"
                   >
-                    <Typography>SE</Typography>
+                    <Typography>Sketchuw</Typography>
                     <IconButton onClick={() => setisCollapsed(!isCollapsed)}>
                       <MenuOutlinedIcon />
                     </IconButton>
