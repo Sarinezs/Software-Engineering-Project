@@ -118,8 +118,9 @@ const FormProduct = () => {
                                 <button onClick={() => handleRemove(item._id)}>delete</button>
                                 <button>
                                     <Link to={'/product/' + item._id}>
+                                        edit
                                         {/* {item.file} */}
-                                        <img src={require('./test_1709651217030-602843418pexels-eberhard-grossgasteiger-1421903.jpg')} height={540} width={960} />
+                                        {/* <img src={require('./test_1709651217030-602843418pexels-eberhard-grossgasteiger-1421903.jpg')} height={540} width={960} /> */}
                                     </Link>
 
                                 </button>

@@ -37,7 +37,7 @@ const Showimage = () => {
                             <tr key={index}>
                                 <td>
                                     {name = 'http://localhost:5000/'+item.file}
-                                    <img src={'http://localhost:5000/'+{name}} height={200} width={200} />
+                                    <img src={name} height={200} width={200} />
                                     {/* {item.file} */}
                                 </td>
                             </tr>

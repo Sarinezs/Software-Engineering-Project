@@ -24,7 +24,7 @@ exports.list = async(req, res) =>{
 
 exports.create = async(req, res) =>{
     try{
-        // console.log(req.body)
+        console.log("l;askhgf")
         // console.log(req.file)
         var data = req.body
         if(req.file){
