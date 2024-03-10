@@ -7,6 +7,7 @@ import FormProduct from './Components/page/admin/Showproduct';
 import FormEditProduct from './Components/page/admin/Editproduct';
 
 import Showlistuser from './Components/page/admin/Showuser';
+import Showimage from './Components/page/image/showimage';
 
 // import Register from './Components/RegisterPage';
 // import Login from './Components/LoginPage';
@@ -70,6 +71,7 @@ function App() {
                       <Route path='/showuser' element={<Showlistuser />}/>
                       <Route path='/product' element={<FormProduct />}/>
                       <Route path='/product/:id' element={<FormEditProduct />}/>
+                      <Route path='/getImage' element={<Showimage />}/>
                       </Routes>
                     </Box>
                   </div>
