@@ -154,7 +154,7 @@ const Productdetail = () => {
                                                     {data.name}
                                                 </Typography>
                                                 <Typography variant="body2" gutterBottom>
-                                                    size:{data.size}
+                                                    si{data.size}
                                                 </Typography>
 
                                             </Grid>
@@ -175,7 +175,6 @@ const Productdetail = () => {
                         </div>
 
                     </div>
-
                 </div>
 
             </div>

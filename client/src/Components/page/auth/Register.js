@@ -31,7 +31,7 @@ const Register = () => {
     const list_data = {
       firstname: data.get("firstname"),
       lastname: data.get("lastname"),
-      phonenumber: data.get("phonenumber"),
+      phone: data.get("phone"),
       email: data.get("email"),
       password: data.get("password")
     }
