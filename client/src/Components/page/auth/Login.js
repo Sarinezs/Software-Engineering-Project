@@ -23,30 +23,39 @@ const Login = () => {
   const navi = useNavigate()
 
   const handleSubmit = (event) => {
-      event.preventDefault();
-      const data = new FormData(event.currentTarget);
+    event.preventDefault();
+    const data = new FormData(event.currentTarget);
 
-      const list_data = {           
-          email: data.get("email"),
-          password: data.get("password")
-      }
+    const list_data = {
+      email: data.get("email"),
+      password: data.get("password")
+    }
 
-      login(list_data)
+    login(list_data)
       .then((res) => {
-          console.log(res)
-          alert(res.data)
-          // navi('/Home')
+        console.log(res)
+        // alert(res.data)
+        // navi('/Home')
+        roleRedirects(res.data.payload.user.role)
 
       })
-      .catch((err) =>{
-          console.log(err)
+      .catch((err) => {
+        console.log(err)
       })
 
   }
 
+  const roleRedirects = (role) =>{
+    if(role === 'admin'){
+      navi('/product')
+    }else{
+      navi('/Home')
+    }
+  }
+
   return (
     <ThemeProvider theme={defaultTheme}>
-      <Container component="main" maxWidth="xs" style={{marginBottom: "100%"}}>
+      <Container component="main" maxWidth="xs" style={{ marginBottom: "100%" }}>
         <CssBaseline />
         <Box
           sx={{
@@ -83,7 +92,7 @@ const Login = () => {
               id="password"
               autoComplete="current-password"
             />
-            
+
             <Button
               type="submit"
               fullWidth
@@ -93,7 +102,7 @@ const Login = () => {
               Sign In
             </Button>
             <Grid container>
-              
+
               <Grid item>
                 <Link href="/" variant="body2">
                   {"Don't have an account? Sign Up"}

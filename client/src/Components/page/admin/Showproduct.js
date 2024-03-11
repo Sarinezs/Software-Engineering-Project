@@ -84,9 +84,10 @@ const FormProduct = () => {
             <form onSubmit={handleSubmit} encType='multipart/form-data'>
                 <input type='text' name='name' onChange={e => handleChange(e)} placeholder='name' /><br />
                 {/* name=" " อันนี้คือชื่อfield */}
-                <input type='text' name='password' onChange={e => handleChange(e)} placeholder='detail' /><br />
                 <input type='number' name='price' onChange={e => handleChange(e)} placeholder='price' /><br />
-                <input type='file' name='file' onChange={e => handleChange(e)} /><br />
+                <input type='text' name='type' onChange={e => handleChange(e)} placeholder='type' /><br />
+                <input type='text' name='size' onChange={e => handleChange(e)} placeholder='size' /><br />
+                <input type='file' name='file' onChange={e => handleChange(e)}  /><br />
                 <button>Submit</button>
             </form>
             {/* <form onSubmit={regis}>

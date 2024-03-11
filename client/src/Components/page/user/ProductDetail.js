@@ -1,30 +1,35 @@
-import React, { useState, useEffect} from 'react'
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react'
 import '../../css/HomePage.css'
-import { getdata } from '../../../Functions/product'
+import { useParams, useNavigate } from 'react-router-dom';
+import { getdata, read} from '../../../Functions/product'
 import { styled } from '@mui/material/styles';
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 import ButtonBase from '@mui/material/ButtonBase';
 
-const HomePage = () => {
-    const [data, setData] = useState([])
+const Productdetail = () => {
+    const [data, setData] = useState({
+        name:'',
+        price:'',
+        type:'',
+        size:'',
+        file:'',
+    })
+    const params = useParams()
     const navi = useNavigate()
 
     useEffect(() => {
-        loadData()
+        loadData(params.id)
     }, [])
 
-    const loadData = async () => {
-        getdata()
+    const loadData = async (id) => {
+        read(id)
             .then((res) => setData(res.data))
             .catch((err) => console.log(err))
     }
 
-    const check = (name) =>{
-        navi("/Productdetail/"+name)
-    }
+    
 
 
 
@@ -104,7 +109,7 @@ const HomePage = () => {
                 <div>
                     <div >
                         <div className='cover' >
-                            <div className='namebrand' style={{marginRight:"80px"}}>
+                            <div className='namebrand' style={{ marginRight: "80px" }}>
                                 <h3 href="#">BRAND</h3>
                                 <a href="#">Adidas</a><br />
                                 <a href="#">Converse</a><br />
@@ -118,50 +123,56 @@ const HomePage = () => {
                                 <a href="#">Reebok</a><br />
                                 <a href="#">Vans</a><br />
                             </div>
+                            
 
-                            {
-                                data ? data.map((item, index) =>
-                                    <Paper
-                                        sx={{
-                                            p: 2,
-                                            margin: 'auto',
-                                            maxWidth: 450,
-                                            flexGrow: 1,
-                                            backgroundColor: (theme) => theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-                                        }}
-                                        style={{ marginTop: "30px", marginLeft: "80px" }}
-                                    >
-                                        <Grid container spacing={2}>
-                                            <Grid item>
-                                                <ButtonBase onClick={() => {check(item._id)}} sx={{ width: 128, height: 128} }>
-                                                    <img src={'http://localhost:5000/'+item.file} height={150} width={150} />
-                                                </ButtonBase>
+
+
+
+                        </div>
+                        <div>
+                        <Paper
+                                sx={{
+                                    p: 2,
+                                    margin: 'auto',
+                                    maxWidth: 450,
+                                    flexGrow: 1,
+                                    backgroundColor: (theme) => theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+                                }}
+                                style={{marginTop:"-800px"}}
+                            >
+                                <Grid container spacing={2}>
+                                    <Grid item>
+                                        <ButtonBase sx={{ width: 430, height: 500 }}>
+                                            {/* <Img alt="complex" src="https://d2cva83hdk3bwc.cloudfront.net/nike-mac-attack-qs-sp-travis-scott-1.jpg" /> */}
+                                            <img src={'http://localhost:5000/'+data.file} height={420} width={490} />
+                                        </ButtonBase>
+                                    </Grid>
+                                    <Grid item xs={12} sm container>
+                                        <Grid item xs container direction="column" spacing={2}>
+                                            <Grid item xs>
+                                                <Typography gutterBottom variant="subtitle1" component="div">
+                                                    {data.name}
+                                                </Typography>
+                                                <Typography variant="body2" gutterBottom>
+                                                    size:{data.size}
+                                                </Typography>
+
                                             </Grid>
-                                            <Grid item xs={12} sm container>
-                                                <Grid item xs container direction="column" spacing={1}>
-                                                    <Grid item xs>
-                                                        <Typography gutterBottom variant="subtitle1" component="div">
-                                                            {item.name}
-                                                        </Typography>
-                                                        <Typography variant="body2" gutterBottom>
-                                                            size:{item.size}
-                                                        </Typography>
-
-                                                    </Grid>
-                                                    
-                                                </Grid>
-                                                <Grid item>
-                                                    <Typography variant="subtitle1" component="div">
-                                                        ${item.price}
-                                                    </Typography>
-                                                </Grid>
+                                            <Grid item>
+                                                <Typography sx={{ cursor: 'pointer' }} variant="body2">
+                                                    Remove
+                                                </Typography>
                                             </Grid>
                                         </Grid>
-                                    </Paper>
-                                ) : null
-                            }
+                                        <Grid item>
+                                            <Typography variant="subtitle1" component="div">
+                                                ${data.price}
+                                            </Typography>
+                                        </Grid>
+                                    </Grid>
+                                </Grid>
+                            </Paper>
                         </div>
-
 
                     </div>
 
@@ -174,4 +185,4 @@ const HomePage = () => {
     )
 }
 
-export default HomePage
+export default Productdetail

@@ -22,6 +22,7 @@ import Login from './Components/page/auth/Login';
 // import Home from './Components/HomePage'
 import Home from './Components/page/user/HomePage'
 import Cart from './Components/page/user/Cart';
+import Productdetail from './Components/page/user/ProductDetail';
 
 // Routes
 import AdminRoutes from './Routes/AdminRoutes';
@@ -40,6 +41,7 @@ function App() {
           <Route path='/Login' element={<Login />}/>
           <Route path='/Home' element={<Home />}/>
           <Route path='/Cart' element={<Cart />}/>
+          <Route path='/Productdetail/:id' element={<Productdetail />}/>
         </Routes>
         </div>
           
