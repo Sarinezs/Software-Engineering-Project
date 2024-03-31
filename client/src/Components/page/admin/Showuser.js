@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import { getuser } from '../../../Functions/showuser'
 import { Link } from 'react-router-dom'
+import SideBar from '../../../Layout/SideBar'
 
 
 
@@ -21,6 +22,7 @@ const Showuser = () => {
 
   return (
     <table className='table'>
+
             <thead>
                 <tr>
                     <th scope='col'>No</th>

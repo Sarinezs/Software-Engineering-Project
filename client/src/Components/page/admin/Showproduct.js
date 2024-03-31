@@ -79,6 +79,7 @@ const FormProduct = () => {
 
     return (
         <div>
+            
             {/* <img src={require('./test_1709651217030-602843418pexels-eberhard-grossgasteiger-1421903.jpg')} height={540} width={960} /> */}
 
             <form onSubmit={handleSubmit} encType='multipart/form-data'>
@@ -87,6 +88,7 @@ const FormProduct = () => {
                 <input type='number' name='price' onChange={e => handleChange(e)} placeholder='price' /><br />
                 <input type='text' name='type' onChange={e => handleChange(e)} placeholder='type' /><br />
                 <input type='text' name='size' onChange={e => handleChange(e)} placeholder='size' /><br />
+                <input type='text' name='description' onChange={e => handleChange(e)} placeholder='description' /><br />
                 <input type='file' name='file' onChange={e => handleChange(e)}  /><br />
                 <button>Submit</button>
             </form>

@@ -1,13 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,700;1,400&display=swap');
-
-.product {
-    /* width: 50%;
+.product-container {
+    width: 100%;
     margin: 0;
     padding: 0;
-    font-family: 'Roboto', sans-serif; */
-}
-
-.navi {
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  .navi {
     width: 100%;
     background-color: #fff;
     height: 80px;
@@ -15,58 +13,43 @@
     justify-content: space-between;
     align-items: center;
     padding: 0 1.5%;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
-    /* Add box shadow for a subtle effect */
-    
-}
-
-.menu_left {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .menu-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .menu-left, .menu-right {
     display: flex;
     list-style: none;
     align-items: center;
-    
-}
-
-.menu_left li {
+  }
+  
+  .menu-left li, .menu-right li {
     margin-right: 25px;
-    
-}
-
-.menu_left a {
+  }
+  
+  .menu-left a, .menu-right a {
     text-decoration: none;
     color: #363636;
     font-weight: bold;
-}
-
-.menu_left img {
+  }
+  
+  .menu-left img {
     width: 124px;
-}
-
-.menu_right {
-    display: flex;
-    list-style: none;
-    align-items: center;
-}
-
-.menu_right li {
-    margin-right: 25px;
-}
-
-.menu_right a {
-    text-decoration: none;
-    color: #363636;
-}
-
-.menu_right svg {
+  }
+  
+  .menu-right svg {
     width: 24px;
     height: 24px;
-    transition: fill 0.3s ease; /* Add transition effect on hover */
-}
-
-
-
-/* Dropdown menu styles */
-.drop-menu {
+  }
+  
+  /* Dropdown menu styles */
+  .drop-menu {
     list-style: none;
     display: none;
     position: absolute;
@@ -75,60 +58,53 @@
     background-color: #fff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     z-index: 1;
-}
-
-.drop-menu ul {
+  }
+  
+  .drop-menu ul {
     display: block;
     margin: 10px;
-}
-
-.drop-menu ul li {
+  }
+  
+  .drop-menu ul li {
     width: 150px;
     padding: 10px;
-}
-
-.menu_left li:hover .drop-menu {
+  }
+  
+  .menu-left li:hover .drop-menu {
     display: block;
-}
-
-.menu_left li a {
+  }
+  
+  .menu-left li a {
     position: relative;
     text-decoration: none;
     color: #363636;
     font-weight: bold;
-    transition: color 0.3s ease; /* Add transition effect on color change */
-}
-
-.menu_left li a:hover {
-    color: #000; /* Change the color on hover */
-}
-
-.menu_left li:not(.logo) a::after {
+  }
+  
+  .menu-left li a:hover {
+    color: #000;
+  }
+  
+  .menu-left li:not(.logo) a::after {
     content: "";
     position: absolute;
     width: 100%;
-    height: 2px; /* Adjust the thickness of the underline */
-    background-color: #000; /* Set the color of the underline */
+    height: 2px;
+    background-color: #000;
     bottom: 0;
     left: 0;
-    transform: scaleX(0); /* Initially set the scale to 0 for the transition effect */
+    transform: scaleX(0);
     transform-origin: bottom right;
-    transition: transform 0.3s ease; /* Add transition effect on scale change */
-}
-
-.menu_left li:not(.logo) a:hover::after {
-    transform: scaleX(1); /* Increase the scale on hover */
+  }
+  
+  .menu-left li:not(.logo) a:hover::after {
+    transform: scaleX(1);
     transform-origin: bottom left;
-}
+  }
+  
+  .logo {
+    margin-left: -20px;
+  }
 
-.cover{
-    background-color: black;
-    width: 180px;
-    display: flex;
-    height: 100vh;
-    color: white;
-}
 
-.namebrand a{
-    color: aliceblue;
-}
+  

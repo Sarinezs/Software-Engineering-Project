@@ -28,24 +28,29 @@ import Productdetail from './Components/page/user/ProductDetail';
 import AdminRoutes from './Routes/AdminRoutes';
 import TestRedux1 from './Components/TestRedux1';
 import TestRedux2 from './Components/TestRedux2';
+import Profile from './Components/page/user/Profile';
+import Order from './Components/page/user/Order';
 
 function App() {
 
   return (
     <BrowserRouter>
-    <>
-    <CssBaseline />
+      <>
+        <CssBaseline />
         <div>
-        <Routes>
-          <Route path='/' element={<Register />}/>
-          <Route path='/Login' element={<Login />}/>
-          <Route path='/Home' element={<Home />}/>
-          <Route path='/Cart' element={<Cart />}/>
-          <Route path='/Productdetail/:id' element={<Productdetail />}/>
-        </Routes>
+          <Routes>
+            <Route path='/' element={<Register />} />
+            <Route path='/Login' element={<Login />} />
+            <Route path='/Home' element={<Home />} />
+            <Route path='/Cart' element={<Cart />} />
+            <Route path='/Productdetail/:id' element={<Productdetail />} />
+            <Route path='/account' element={<Profile />} />
+            <Route path='/Ordered' element={<Order />} />
+            
+          </Routes>
         </div>
-          
-            {/* <Route path='/admin/viewable' element={
+
+        {/* <Route path='/admin/viewable' element={
               <AdminRoutes>
                 <FormProduct />
               </AdminRoutes>
@@ -61,28 +66,28 @@ function App() {
             }/>
         </Routes> */}
 
-        
+
         <div className='app'>
           <SideBar />
-              <main>
-                {/* <HeaderBar /> */}
-                  <div>
-                    <Box m="50px">
-                    <Routes>
-                      
-                      <Route path='/showuser' element={<Showlistuser />}/>
-                      <Route path='/product' element={<FormProduct />}/>
-                      <Route path='/product/:id' element={<FormEditProduct />}/>
-                      <Route path='/getImage' element={<Showimage />}/>
-                      </Routes>
-                    </Box>
-                  </div>
-              </main> 
+          <main>
+            {/* <HeaderBar /> */}
+            <div>
+              <Box m="50px">
+                <Routes>
+
+                  <Route path='/showuser' element={<Showlistuser />} />
+                  <Route path='/product' element={<FormProduct />} />
+                  <Route path='/product/:id' element={<FormEditProduct />} />
+                  <Route path='/getImage' element={<Showimage />} />
+                </Routes>
+              </Box>
             </div>
-          {/* <Button variant="contained">Contained</Button> */}
-        
-        </>
-        {/* <TestRedux1 />
+          </main>
+        </div>
+        {/* <Button variant="contained">Contained</Button> */}
+
+      </>
+      {/* <TestRedux1 />
         <hr />
         <TestRedux2 /> */}
     </BrowserRouter>

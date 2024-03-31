@@ -122,12 +122,22 @@
 }
 
 .cover{
-    background-color: black;
-    width: 180px;
     display: flex;
-    height: 100vh;
-    color: white;
+    width: 100%;
+    list-style: none;
+    
+    display: flex;
+   
+    flex-wrap: wrap; /* ให้รายการสินค้าขึ้นแถวใหม่เมื่อความกว้างไม่เพียงพอ */
+    /* justify-content: space-between; จัดวางสินค้าให้อยู่ระหว่างเส้นแนวตั้ง */
+    flex-basis: calc(25% - 20px); /* ให้แสดงผลสินค้า 3 ชิ้นต่อแถว */
+    margin-bottom: 20px; /* เพิ่มระยะห่างล่างสินค้า */
+    padding: 10px; /* เพิ่มเส้นขอบของสินค้า */
+    box-sizing: border-box; /* ให้ขนาดสินค้าคำนวณจากขอบภายใน */
 }
+
+
+
 
 .namebrand a{
     color: aliceblue;

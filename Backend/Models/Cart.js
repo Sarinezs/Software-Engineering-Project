@@ -21,4 +21,4 @@ const productSchema = mongoose.Schema({
     },
 }, { timestamps: true})
 
-module.exports = mongoose.model('products', productSchema) 
+module.exports = mongoose.model('Carts', productSchema) 

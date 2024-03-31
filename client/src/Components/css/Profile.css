@@ -1,0 +1,45 @@
+
+.User{
+    width: 180px;
+    display: flex;
+    height: 100vh;
+    align-items: flex-start;
+    width:100%;
+}
+
+.brand .navi .menu_left .user{
+    text-align: center;
+}
+.pic {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+   
+}
+
+.text {
+    margin: 10px;
+    align-items: center;
+   
+}
+
+
+
+
+
+
+.menu {
+    text-align: left;
+    color: aliceblue;
+    background-color: black;
+    padding: 20px;
+    height: 100%;
+}
+.menu a{
+    color: aliceblue;
+    text-decoration: none;
+    padding-top: 5px;
+    flex-direction: column;
+    display: flex;
+
+}

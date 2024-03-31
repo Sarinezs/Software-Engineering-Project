@@ -108,28 +108,7 @@ const Productdetail = () => {
                 </nav>
                 <div>
                     <div >
-                        <div className='cover' >
-                            <div className='namebrand' style={{ marginRight: "80px" }}>
-                                <h3 href="#">BRAND</h3>
-                                <a href="#">Adidas</a><br />
-                                <a href="#">Converse</a><br />
-                                <a href="#">Hoka</a><br />
-                                <a href="#">Keds</a><br />
-                                <a href="#">Mizuno</a><br />
-                                <a href="#">New balance</a><br />
-                                <a href="#">Lacoste</a><br />
-                                <a href="#">Nike</a><br />
-                                <a href="#">Puma</a><br />
-                                <a href="#">Reebok</a><br />
-                                <a href="#">Vans</a><br />
-                            </div>
-                            
-
-
-
-
-                        </div>
-                        <div>
+                        <div className='cover' style={{marginTop:"50px"}}>
                         <Paper
                                 sx={{
                                     p: 2,
@@ -138,13 +117,13 @@ const Productdetail = () => {
                                     flexGrow: 1,
                                     backgroundColor: (theme) => theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
                                 }}
-                                style={{marginTop:"-800px"}}
+                                
                             >
                                 <Grid container spacing={2}>
                                     <Grid item>
-                                        <ButtonBase sx={{ width: 430, height: 500 }}>
+                                        <ButtonBase sx={{ width: 500, height: 500 }} style={{margin:"10px"}}>
                                             {/* <Img alt="complex" src="https://d2cva83hdk3bwc.cloudfront.net/nike-mac-attack-qs-sp-travis-scott-1.jpg" /> */}
-                                            <img src={'http://localhost:5000/'+data.file} height={420} width={490} />
+                                            <img src={'http://localhost:5000/'+data.file} height={450} width={400} style={{marginRight:"auto"}} />
                                         </ButtonBase>
                                     </Grid>
                                     <Grid item xs={12} sm container>
