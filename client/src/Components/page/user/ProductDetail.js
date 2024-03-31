@@ -1,23 +1,26 @@
 import React, { useState, useEffect } from 'react'
 import '../../css/HomePage.css'
 import { useParams, useNavigate } from 'react-router-dom';
-import { getdata, read} from '../../../Functions/product'
+import { getdata, read } from '../../../Functions/product'
 import { styled } from '@mui/material/styles';
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 import ButtonBase from '@mui/material/ButtonBase';
+import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
+import IconButton from '@mui/material/IconButton';
+import { cart_create } from '../../../Functions/cart';
 
 const Productdetail = () => {
     const [data, setData] = useState({
-        name:'',
-        price:'',
-        type:'',
-        size:'',
-        file:'',
+        name: '',
+        price: '',
+        type: '',
+        size: '',
+        description: '',
+        file: '',
     })
     const params = useParams()
-    const navi = useNavigate()
 
     useEffect(() => {
         loadData(params.id)
@@ -29,7 +32,17 @@ const Productdetail = () => {
             .catch((err) => console.log(err))
     }
 
-    
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+        cart_create(data)
+            .then(res => {
+                console.log(res.data)
+                loadData()
+            })
+            .catch((err) => console.log("item has already in cart"))
+    }
+
+
 
 
 
@@ -108,8 +121,9 @@ const Productdetail = () => {
                 </nav>
                 <div>
                     <div >
-                        <div className='cover' style={{marginTop:"50px"}}>
-                        <Paper
+                        <div className='cover' style={{ marginTop: "50px" }}>
+
+                            <Paper
                                 sx={{
                                     p: 2,
                                     margin: 'auto',
@@ -117,13 +131,16 @@ const Productdetail = () => {
                                     flexGrow: 1,
                                     backgroundColor: (theme) => theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
                                 }}
-                                
+
                             >
                                 <Grid container spacing={2}>
                                     <Grid item>
-                                        <ButtonBase sx={{ width: 500, height: 500 }} style={{margin:"10px"}}>
+                                        <IconButton onClick={handleSubmit} style={{marginLeft:"350px"}} color="primary" aria-label="add to shopping cart">
+                                            <AddShoppingCartIcon />
+                                        </IconButton>
+                                        <ButtonBase sx={{ width: 500, height: 500 }} style={{ margin: "10px" }}>
                                             {/* <Img alt="complex" src="https://d2cva83hdk3bwc.cloudfront.net/nike-mac-attack-qs-sp-travis-scott-1.jpg" /> */}
-                                            <img src={'http://localhost:5000/'+data.file} height={450} width={400} style={{marginRight:"auto"}} />
+                                            <img src={'http://localhost:5000/' + data.file} height={450} width={400} style={{ marginRight: "auto" }} />
                                         </ButtonBase>
                                     </Grid>
                                     <Grid item xs={12} sm container>

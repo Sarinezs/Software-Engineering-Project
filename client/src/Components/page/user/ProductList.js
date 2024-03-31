@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
 import '../../css/ProductList.css'
 import '../../css/HomePage.css'
@@ -8,6 +8,7 @@ import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 import ButtonBase from '@mui/material/ButtonBase';
+
 
 const ProductList = () => {
     const [data, setData] = useState([])
@@ -23,8 +24,8 @@ const ProductList = () => {
             .catch((err) => console.log(err))
     }
 
-    const check = (name) =>{
-        navi("/Productdetail/"+name)
+    const check = (name) => {
+        navi("/Productdetail/" + name)
     }
 
 
@@ -103,28 +104,36 @@ const ProductList = () => {
 
                 </nav>
                 <div>
-                    <div className="cover" style={{marginTop:"20px"}}>
-                        
-                            
+                    <div className="cover" style={{ marginTop: "20px" }}>
 
-                            {
-                                data ? data.map((item, index) =>
-                                <div style={{maxWidth:"200px", marginRight:"160px  "} }> {/* เพิ่ม className เพื่อใช้สไตล์ CSS สำหรับ ProductList */}
-                                <ButtonBase onClick={() => {check(item._id)}}>
-                                <ul>
-                                        {/* <a href="/show"> */}
+
+
+                        {
+                            data ? data.map((item, index) =>
+                                <div style={{ maxWidth: "200px", marginRight: "160px  " }}> {/* เพิ่ม className เพื่อใช้สไตล์ CSS สำหรับ ProductList */}
+
+                                    <ButtonBase onClick={() => { check(item._id) }}>
+
                                         <ul>
-                                            <img src= {'http://localhost:5000/'+item.file} height={250} width={250} />
-                                            <div>
-                                                <h3>{item.name}</h3>
-                                                <p>{item.description}</p>
-                                                <p>Price: ฿{item.price}</p>
-                                            </div>
+                                            {/* <a href="/show"> */}
+                                            <ul>
+
+                                                <img src={'http://localhost:5000/' + item.file} height={250} width={250} />
+                                                <div>
+                                                    <h3>
+                                                        {item.name}
+
+                                                    </h3>
+
+                                                    <p>{item.description}</p>
+                                                    <p>Price: ฿{item.price}</p>
+
+                                                </div>
+                                            </ul>
+                                            {/* </a> */}
                                         </ul>
-                                        {/* </a> */}
-                                </ul>
-                                </ButtonBase>
-                                
+                                    </ButtonBase>
+
                                     {/* <Paper
                                     
                                         sx={{
@@ -163,10 +172,10 @@ const ProductList = () => {
                                             </Grid>
                                         </Grid>
                                     </Paper> */}
-                                    </div>
-                                ) : null
-                            }
-                      
+                                </div>
+                            ) : null
+                        }
+
 
 
                     </div>
@@ -174,7 +183,7 @@ const ProductList = () => {
                 </div>
 
             </div>
-            
+
         </div>
 
 
