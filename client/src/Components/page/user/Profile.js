@@ -6,8 +6,20 @@ import Stack from '@mui/material/Stack';
 import { deepOrange, deepPurple } from '@mui/material/colors';
 import Button from '@mui/material/Button';
 
+import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+
 
 const Profile = () => {
+    const navi = useNavigate()
+
+    const c_user = useSelector((state) => ({ ...state }))
+    console.log(c_user.users.user)
+
+    const profile = (data, name) => {
+        navi("/"+name)
+    }
+
     return (
         <div style={{ marginBottom: "100%" }}>
 
@@ -38,12 +50,9 @@ const Profile = () => {
                                 </a>
                             </li>
                             <li>
-                                <a href="/account">
-                                    <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none" />
-                                        <path d="M12 5.9c1.16 0 2.1.94 2.1 2.1s-.94 2.1-2.1 2.1S9.9 9.16 9.9 8s.94-2.1 2.1-2.1m0 9c2.97 0 6.1 1.46 6.1 2.1v1.1H5.9V17c0-.64 3.13-2.1 6.1-2.1M12 4C9.79 4 8 5.79 8 8s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm0 9c-2.67 0-8 1.34-8 4v3h16v-3c0-2.66-5.33-4-8-4z" />
-                                    </svg>
-
-                                </a>
+                                <svg onClick={() => { profile(c_user, "account") }} name='profile' xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none" />
+                                    <path d="M12 5.9c1.16 0 2.1.94 2.1 2.1s-.94 2.1-2.1 2.1S9.9 9.16 9.9 8s.94-2.1 2.1-2.1m0 9c2.97 0 6.1 1.46 6.1 2.1v1.1H5.9V17c0-.64 3.13-2.1 6.1-2.1M12 4C9.79 4 8 5.79 8 8s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm0 9c-2.67 0-8 1.34-8 4v3h16v-3c0-2.66-5.33-4-8-4z" />
+                                </svg>
                             </li>
                             <li>
                                 <a href="/cart">
@@ -71,14 +80,14 @@ const Profile = () => {
                         </div>
                     </div>
                 </div>
-                <div style={{ marginTop: "-800px", marginLeft:"600px"}}>
+                <div style={{ marginTop: "-800px", marginLeft: "600px" }}>
 
                     <div className='text'>
                         <div className='first'>
                             <h3>Firstname</h3>
                         </div>
 
-                        <TextField style={{ width: "400px" }} id="outlined-basic" label="Firstname" variant="outlined" type='text' /><br />
+                        <TextField value={c_user.users.user.firstname} style={{ width: "400px" }} id="outlined-basic" label="Firstname" variant="outlined" type='text' /><br />
                     </div>
 
                     <div className='text' >
@@ -86,28 +95,28 @@ const Profile = () => {
                             <h3>Lastname</h3>
                         </div>
 
-                        <TextField style={{ width: "400px" }} id="outlined-basic" label="Lastname" variant="outlined" type='text' /><br />
+                        <TextField value={c_user.users.user.lastname} style={{ width: "400px" }} id="outlined-basic" label="Lastname" variant="outlined" type='text' /><br />
                     </div>
 
                     <div className='text' >
                         <div className='email'>
                             <h3>E-mail</h3>
                         </div>
-                        <TextField style={{ width: "400px" }} id="outlined-basic" label="E-mail" variant="outlined" type='email' /><br />
+                        <TextField value={c_user.users.user.email} style={{ width: "400px" }} id="outlined-basic" label="E-mail" variant="outlined" type='email' /><br />
                     </div>
 
                     <div className='text' >
                         <div className='tel'>
                             <h3>Tel.</h3>
                         </div>
-                        <TextField style={{ width: "400px" }} id="outlined-basic" label="Tel." variant="outlined" type='tel' /><br />
+                        <TextField value={c_user.users.user.phone} style={{ width: "400px" }} id="outlined-basic" label="Tel." variant="outlined" type='tel' /><br />
                     </div>
 
                     <div className='text' >
                         <div className='address'>
                             <h3>Address</h3>
                         </div>
-                        <TextField style={{ width: "400px" }} id="outlined-basic" label="Address" variant="outlined" type='text' /><br />
+                        <TextField value={c_user.users.user.address} style={{ width: "400px" }} id="outlined-basic" label="Address" variant="outlined" type='text' /><br />
                     </div>
                     <Button variant="contained">Edit</Button>
 

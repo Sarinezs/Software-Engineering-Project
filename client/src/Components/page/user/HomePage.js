@@ -10,9 +10,12 @@ import Typography from '@mui/material/Typography';
 import ButtonBase from '@mui/material/ButtonBase';
 import ProductList from './ProductList';
 
+
 const HomePage = () => {
     const [data, setData] = useState([])
     const navi = useNavigate()
+
+    
 
     useEffect(() => {
         loadData()
