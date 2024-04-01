@@ -141,4 +141,24 @@
 
 .namebrand a{
     color: aliceblue;
+    
+}
+
+.all-grid{
+    display: grid;
+    grid-template-columns: auto  ;
+    grid-template-rows: auto;
+}
+
+.cart-grid{
+    display: grid;
+    margin-left: 10%;
+    grid-template-columns: 80%  ;
+    row-gap: 5px;
+}
+
+.result-grid{
+    display: grid;
+    grid-template-columns: auto  ;
+    
 }

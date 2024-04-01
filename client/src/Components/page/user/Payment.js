@@ -1,10 +1,5 @@
 import React from 'react'
 import '../../css/Profile.css'
-import TextField from '@mui/material/TextField';
-import Avatar from '@mui/material/Avatar';
-import Stack from '@mui/material/Stack';
-import { deepOrange, deepPurple } from '@mui/material/colors';
-import Button from '@mui/material/Button';
 
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
@@ -14,7 +9,7 @@ const Payment = () => {
     const navi = useNavigate()
 
     const c_user = useSelector((state) => ({ ...state }))
-    console.log(c_user.users.user)
+    console.log(c_user.users)
 
     const warp = (name) => {
         navi("/" + name)

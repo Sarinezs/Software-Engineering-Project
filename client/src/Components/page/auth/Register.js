@@ -33,7 +33,8 @@ const Register = () => {
       lastname: data.get("lastname"),
       phone: data.get("phone"),
       email: data.get("email"),
-      password: data.get("password")
+      password: data.get("password"),
+      address: data.get("address")
     }
 
     register(list_data)
@@ -124,6 +125,17 @@ const Register = () => {
                   label="Password"
                   type="password"
                   id="password"
+                  autoComplete="new-password"
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  required
+                  fullWidth
+                  name="address"
+                  label="address"
+                  type="address"
+                  id="address"
                   autoComplete="new-password"
                 />
               </Grid>
