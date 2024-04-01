@@ -30,6 +30,7 @@ import TestRedux1 from './Components/TestRedux1';
 import TestRedux2 from './Components/TestRedux2';
 import Profile from './Components/page/user/Profile';
 import Order from './Components/page/user/Order';
+import Payment from './Components/page/user/Payment';
 
 function App() {
 
@@ -46,6 +47,7 @@ function App() {
             <Route path='/Productdetail/:id' element={<Productdetail />} />
             <Route path='/account' element={<Profile />} />
             <Route path='/Ordered' element={<Order />} />
+            <Route path='/Payment' element={<Payment />} />
             
           </Routes>
         </div>
