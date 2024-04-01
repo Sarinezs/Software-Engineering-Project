@@ -14,6 +14,11 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useNavigate } from 'react-router-dom';
 import { login } from '../../../Functions/auth'
 
+import { useDispatch } from 'react-redux';
+import { keep_user_id } from '../../../store/store_current_user';
+
+
+
 
 // TODO remove, this demo shouldn't need to reset the theme.
 
@@ -21,20 +26,29 @@ const defaultTheme = createTheme();
 
 const Login = () => {
   const navi = useNavigate()
+  const dispatch = useDispatch();
 
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
 
     const list_data = {
+      firstname: data.get("firstname"),
+      lastname: data.get("lastname"),
+      phone: data.get("phone"),
       email: data.get("email"),
-      password: data.get("password")
+      password: data.get("password"),
+      role: data.get("role"),
+      address: data.get("address")
     }
+
+    
 
     login(list_data)
       .then((res) => {
-        console.log(res)
-        // alert(res.data)
+        dispatch(keep_user_id(res.data.payload.user))
+        // console.log(res.data.payload.user)
+        // alert(res.data.payload)
         // navi('/Home')
         roleRedirects(res.data.payload.user.role)
 

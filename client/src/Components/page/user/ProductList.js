@@ -9,10 +9,16 @@ import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 import ButtonBase from '@mui/material/ButtonBase';
 
+import { useSelector, useDispatch } from 'react-redux';
+import { keep_user_id } from '../../../store/store_current_user';
+
 
 const ProductList = () => {
     const [data, setData] = useState([])
     const navi = useNavigate()
+    const dispatch = useDispatch();
+    const c_user = useSelector((state) => ({ ...state }))
+    // console.log(c_user)
 
     useEffect(() => {
         loadData()
@@ -26,6 +32,10 @@ const ProductList = () => {
 
     const check = (name) => {
         navi("/Productdetail/" + name)
+    }
+
+    const profile = (data, name) =>{
+        navi("/"+name)
     }
 
 
@@ -63,6 +73,7 @@ const ProductList = () => {
 
                         <li>
                             <a href="/access">ACCESSORIES</a>
+
                         </li>
 
 
@@ -83,12 +94,10 @@ const ProductList = () => {
                             </a>
                         </li>
                         <li>
-                            <a href="/account">
-                                <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none" />
+                                <svg onClick={() =>{profile(c_user, "account")}} xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none" />
                                     <path d="M12 5.9c1.16 0 2.1.94 2.1 2.1s-.94 2.1-2.1 2.1S9.9 9.16 9.9 8s.94-2.1 2.1-2.1m0 9c2.97 0 6.1 1.46 6.1 2.1v1.1H5.9V17c0-.64 3.13-2.1 6.1-2.1M12 4C9.79 4 8 5.79 8 8s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm0 9c-2.67 0-8 1.34-8 4v3h16v-3c0-2.66-5.33-4-8-4z" />
                                 </svg>
 
-                            </a>
                         </li>
                         <li>
                             <a href="/cart">
@@ -110,12 +119,11 @@ const ProductList = () => {
 
                         {
                             data ? data.map((item, index) =>
-                                <div style={{ maxWidth: "200px", marginRight: "160px  " }}> {/* เพิ่ม className เพื่อใช้สไตล์ CSS สำหรับ ProductList */}
+                                <div style={{ maxWidth: "200px", marginRight: "160px  " }}>
 
                                     <ButtonBase onClick={() => { check(item._id) }}>
 
                                         <ul>
-                                            {/* <a href="/show"> */}
                                             <ul>
 
                                                 <img src={'http://localhost:5000/' + item.file} height={250} width={250} />
@@ -130,48 +138,10 @@ const ProductList = () => {
 
                                                 </div>
                                             </ul>
-                                            {/* </a> */}
                                         </ul>
                                     </ButtonBase>
 
-                                    {/* <Paper
-                                    
-                                        sx={{
-                                            p: 3,
-                                            margin: 'auto',
-                                            maxWidth: 450,
-                                            flexGrow: 1,
-                                            backgroundColor: (theme) => theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-                                        }}
-                                        style={{ marginTop: "30px", marginLeft: "80px" }}
-                                    >
-                                        <Grid container spacing={2}>
-                                            <Grid item>
-                                                <ButtonBase onClick={() => {check(item._id)}} sx={{ width: 128, height: 128} }>
-                                                    <img src={'http://localhost:5000/'+item.file} height={150} width={150} />
-                                                </ButtonBase>
-                                            </Grid>
-                                            <Grid item xs={12} sm container>
-                                                <Grid item xs container direction="column" spacing={1}>
-                                                    <Grid item xs>
-                                                        <Typography gutterBottom variant="subtitle1" component="div">
-                                                            {item.name}
-                                                        </Typography>
-                                                        <Typography variant="body2" gutterBottom>
-                                                            size:{item.size}
-                                                        </Typography>
 
-                                                    </Grid>
-                                                    
-                                                </Grid>
-                                                <Grid item>
-                                                    <Typography variant="subtitle1" component="div">
-                                                        ${item.price}
-                                                    </Typography>
-                                                </Grid>
-                                            </Grid>
-                                        </Grid>
-                                    </Paper> */}
                                 </div>
                             ) : null
                         }

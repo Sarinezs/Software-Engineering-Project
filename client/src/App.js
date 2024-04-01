@@ -31,6 +31,7 @@ import TestRedux2 from './Components/TestRedux2';
 import Profile from './Components/page/user/Profile';
 import Order from './Components/page/user/Order';
 
+
 function App() {
 
   return (
@@ -87,9 +88,9 @@ function App() {
         {/* <Button variant="contained">Contained</Button> */}
 
       </>
-      {/* <TestRedux1 />
-        <hr />
-        <TestRedux2 /> */}
+      {/* <TestRedux1 /> */}
+        {/* <hr /> */}
+        {/* <TestRedux2 /> */}
     </BrowserRouter>
   );
 }

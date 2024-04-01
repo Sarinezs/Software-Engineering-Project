@@ -26,7 +26,7 @@ exports.register = async (req, res) => {
         // // res.send(req.body)
 
         
-        const { firstname, lastname, phone, email, password } = req.body
+        const { firstname, lastname, phone, email, password, address } = req.body
         console.log(req.body)
         var user = await User.findOne({ email })
 
@@ -41,7 +41,8 @@ exports.register = async (req, res) => {
             lastname,
             phone,
             email,
-            password
+            password,
+            address,
         })
         user.password = await bcrypt.hash(password, salt)
 
@@ -63,7 +64,7 @@ exports.login = async (req, res) => {
         // 1. Check User
         const { email, password } = req.body
         var user = await User.findOneAndUpdate({ email }, { new: true })
-        console.log(user)
+        // console.log(user)
         if(user){
             const isMatch = await bcrypt.compare(password, user.password)
             if(!isMatch){
@@ -75,11 +76,14 @@ exports.login = async (req, res) => {
 
             var payload = {
                 user:{
+                    firstname:user.firstname,
+                    lastname:user.lastname,
+                    phone:user.phone,
                     email:user.email,
-                    role:user.role
+                    role:user.role,
+                    address:user.address,
                 }
             }
-
             // 3. Generate token
             jwt.sign(payload, 'jwtsecret', { expiresIn:'1d' }, (err, token) => {
                 if(err) throw err;
