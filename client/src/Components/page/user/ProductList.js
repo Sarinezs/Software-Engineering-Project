@@ -119,6 +119,7 @@ const ProductList = () => {
 
                         {
                             data ? data.map((item, index) =>
+                                
                                 <div style={{ maxWidth: "200px", marginRight: "160px  " }}>
 
                                     <ButtonBase onClick={() => { check(item._id) }}>
