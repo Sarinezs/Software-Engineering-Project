@@ -49,7 +49,6 @@ const Login = () => {
     login(list_data)
       .then((res) => {
         
-        // dispatch(keep_user_id(res.data.payload.user))
         if(res.data === 'password Invalid!!'){
           alert(res.data)
         }
@@ -57,6 +56,7 @@ const Login = () => {
           alert(res.data)
         }
         else{
+          dispatch(keep_user_id(res.data.payload.user))
           roleRedirects(res.data.payload.user.role)
         }
         // console.log(res.data.payload.user)

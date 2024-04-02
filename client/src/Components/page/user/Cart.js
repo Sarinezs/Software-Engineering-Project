@@ -15,6 +15,7 @@ import { useNavigate } from 'react-router-dom';
 
 import { useDispatch } from 'react-redux';
 import { total_cost } from '../../../store/store_current_cost';
+import { total_product } from '../../../store/store_current_product';
 
 const Img = styled('img')({
     margin: 'auto',
@@ -41,7 +42,7 @@ const Cart = () => {
     const loadData = async () => {
         cart_data()
             .then((res) => {
-                // console.log(res.data[0]._id)
+                // console.log(res.data)
                 setData(res.data)
             })
             .catch((err) => console.log(err))
@@ -54,9 +55,10 @@ const Cart = () => {
         navi("/" + name)
     }
 
-    const pay = (name, all_cost) =>{
+    const pay = (name, all_cost, product) =>{
         dispatch(total_cost(all_cost))
-        // console.log(name)
+        dispatch(total_product(product))
+        console.log(data)
         navi("/"+name)
     }
 
@@ -85,7 +87,6 @@ const Cart = () => {
                             <div className='user'>
                                 <h1>Cart</h1>
                             </div>
-
                         </ul>
 
 
@@ -187,7 +188,7 @@ const Cart = () => {
 
                                     </Grid>
                                     <Grid item sx={{ margin: '15px' }} textAlign={'center'}>
-                                        <Button onClick={() => { pay("Payment", {cost}) }} variant="contained">ยืนยันคำสั่งซื้อ</Button>
+                                        <Button onClick={() => { pay("Payment", {cost}, {data}) }} variant="contained">ยืนยันคำสั่งซื้อ</Button>
                                       
                                     </Grid>
                                 </Grid>

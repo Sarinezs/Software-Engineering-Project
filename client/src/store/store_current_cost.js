@@ -10,6 +10,7 @@ export const current_cost = createSlice({
     reducers: {
         total_cost: (state, action) => {
             state.cost = action.payload
+
         },
     },
 })

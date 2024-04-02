@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import '../../css/Profile.css'
 import TextField from '@mui/material/TextField';
 import Avatar from '@mui/material/Avatar';
@@ -12,15 +12,60 @@ import LogoutIcon from '@mui/icons-material/Logout';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
+import { order_create } from '../../../Functions/Order';
 
 const Payment = () => {
     const navi = useNavigate()
+    const [formdata, setFormdata] = useState({
+        product: {},
+        cost: '',
+    })
 
-    const c_cost = useSelector((state) => ({ ...state }))
-    // console.log(c_cost.cost)
+    const { cost } = useSelector((state) => ({ ...state }))
+    const { product } = useSelector((state) => ({ ...state }))
+    const all_product = product.product.data
+    const all_cost = cost.cost.cost + 100
+    // console.log(product.product.data)
+    console.log(all_cost)
+    console.log(all_product.length)
+    var i = 0
+    
+    // console.log(cost.cost.cost)
 
     const warp = (name) => {
         navi("/" + name)
+    }
+
+    // const updateFormData = (newData) => {
+    //     setFormdata(prevState => ({
+    //         ...prevState,
+    //         ...newData
+    //     }));
+    // };
+
+    const save = () =>{
+        for( i = 0; i<all_product.length; i++){
+            // console.log(all_product[i])
+            order_create(all_product[i])
+        }
+        alert('Payment Success')
+    }
+
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+        
+        // updateFormData({
+        //     product: all_product,
+        //     cost: all_cost
+
+        // })
+        // console.log(formdata)
+        // order_create(formdata)
+        //     .then(res => {
+        //         console.log(res.data)
+        //     })
+        //     .catch((err) => console.log("Order Error"))
+        save()
     }
 
     return (
@@ -68,9 +113,27 @@ const Payment = () => {
             <div>
                 <img src="https://i.ibb.co/TKgx2MC/IMG-5092.png" width="300" height="300" style={{ marginLeft: "40%", marginTop: "10%" }} />
                 <br />
-                <h3 style={{ marginLeft: "45%" }}> Total Cost: {c_cost.cost.cost.cost + 100}</h3>
+                <h3 style={{ marginLeft: "45%" }}> Total Cost: {cost.cost.cost + 100}</h3>
+                <h3 style={{ marginLeft: "43%", marginBottom: "-3%" }}>Product : </h3>
+                {
+                    all_product ? all_product.map((item, index) =>
+                        <div style={{ marginLeft: "49%", marginTop: "-20px" }}>
+                            <h4 >{item.name} {item.price}</h4>
+
+
+                        </div>
+                    ) : null
+                }
+
+                <div style={{ marginLeft: "49%", marginTop: "-20px" }}>
+                    <h4 >ค่าส่ง 100</h4>
+
+
+                </div>
+
+
                 <IconButton style={{ marginLeft: "46%" }} color="primary" aria-label="add to shopping cart">
-                    <Button variant="contained">Confirm</Button>
+                    <Button onClick={handleSubmit} variant="contained">Confirm</Button>
                 </IconButton>
             </div>
 

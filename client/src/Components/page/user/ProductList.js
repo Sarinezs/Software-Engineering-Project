@@ -27,7 +27,7 @@ const ProductList = () => {
         loadData()
     }, [])
 
-    const loadData = async () => {
+    const loadData = async () => { 
         getdata()
             .then((res) => setData(res.data))
             .catch((err) => console.log(err))
