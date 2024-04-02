@@ -2,12 +2,21 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 import { Remove, create, getdata } from '../../../Functions/product'
+import "../../css/Showproduct.css"
 
 
 const FormProduct = () => {
 
     const [data, setData] = useState([])
-    const [form, setForm] = useState({})
+    const [form, setForm] = useState({
+        name: '',
+        price: '',
+        type: '',
+        size: '',
+        description: '',
+        file: []
+    })
+    const [d, setd] = useState('')
 
     useEffect(() => {
         loadData()
@@ -54,6 +63,14 @@ const FormProduct = () => {
         create(formWithImageData)
             .then(res => {
                 console.log(res.data)
+                setForm({
+                    name: '',
+                    price: '',
+                    type: '',
+                    size: '',
+                    description: '',
+                    file: []
+                })
                 loadData()
             })
             .catch((err) => console.log(err))
@@ -79,54 +96,51 @@ const FormProduct = () => {
 
     return (
         <div>
-            
-            {/* <img src={require('./test_1709651217030-602843418pexels-eberhard-grossgasteiger-1421903.jpg')} height={540} width={960} /> */}
+
 
             <form onSubmit={handleSubmit} encType='multipart/form-data'>
-                <input type='text' name='name' onChange={e => handleChange(e)} placeholder='name' /><br />
-                {/* name=" " อันนี้คือชื่อfield */}
-                <input type='number' name='price' onChange={e => handleChange(e)} placeholder='price' /><br />
-                <input type='text' name='type' onChange={e => handleChange(e)} placeholder='type' /><br />
-                <input type='text' name='size' onChange={e => handleChange(e)} placeholder='size' /><br />
-                <input type='text' name='description' onChange={e => handleChange(e)} placeholder='description' /><br />
-                <input type='file' name='file' onChange={e => handleChange(e)}  /><br />
+                <input value={form.name} type='text' name='name' onChange={e => handleChange(e)} placeholder='name' /><br />
+                <input value={form.price} type='number' name='price' onChange={e => handleChange(e)} placeholder='price' /><br />
+                <input value={form.type} type='text' name='type' onChange={e => handleChange(e)} placeholder='type' /><br />
+                <input value={form.size} type='text' name='size' onChange={e => handleChange(e)} placeholder='size' /><br />
+                <input value={form.description} type='text' name='description' onChange={e => handleChange(e)} placeholder='description' /><br />
+                <input type='file' name='file' onChange={e => handleChange(e)} /><br />
                 <button>Submit</button>
             </form>
-            {/* <form onSubmit={regis}>
-        <input type='text' name='name' onChange={e => handleChange(e)} placeholder='name' /><br/>
-        <input type='text' name='password' onChange={e => handleChange(e)} placeholder='detail' /><br/> 
-        <button>register</button>
-    </form> */}
 
-            <table className='table'>
-                <thead>
-                    <tr>
-                        <th scope='col'>#</th>
-                        <th scope='col'>name</th>
-                        <th scope='col'>detail</th>
-                        <th scope='col'>price</th>
-                        <th scope='col'>action</th>
-                        <th scope='col'>edit</th>
+
+            <table className='table' style={{ borderCollapse: 'collapse', border: '1px solid black' }}>
+                <thead >
+                    <tr >
+                        <th className='table_th' scope='col' style={{ border: '1px solid black' }}>#</th>
+                        <th className='table_th' scope='col'>name</th>
+                        <th className='table_th' scope='col'>price</th>
+                        <th className='table_th' scope='col'>type</th>
+                        <th className='table_th' scope='col'>size</th>
+                        <th className='table_th' scope='col'>description</th>
+                        <th className='table_th' scope='col'>file</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody >
                     {
                         data ? data.map((item, index) =>
                             <tr key={index}>
-                                <td>{index + 1}</td>
-                                <td>{item.name}</td>
-                                <td>{item.detail}</td>
-                                <td>{item.price}</td>
-                                {/* <td onClick={() => handleRemove(item._id)}>delete</td> */}
-                                <button onClick={() => handleRemove(item._id)}>delete</button>
-                                <button>
+                                <td className='table_td'>{index + 1}</td>
+                                <td className='table_td'>{item.name}</td>
+                                <td className='table_td'>{item.price}</td>
+                                <td className='table_td'>{item.type}</td>
+                                <td className='table_td'>{item.size}</td>
+                                <td className='table_td'>{item.description}</td>
+                                <td className='table_td'>{item.file}</td>
+                                <td className='table_button'>
+                                    <button onClick={() => handleRemove(item._id)}>delete</button>
+                                </td>
+                                {/* <button>
                                     <Link to={'/product/' + item._id}>
                                         edit
-                                        {/* {item.file} */}
-                                        {/* <img src={require('./test_1709651217030-602843418pexels-eberhard-grossgasteiger-1421903.jpg')} height={540} width={960} /> */}
                                     </Link>
 
-                                </button>
+                                </button> */}
 
                             </tr>
                         )

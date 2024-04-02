@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 
 // import { read, update } from '../Functions/product'
@@ -11,9 +11,9 @@ const FormEditProduct = () => {
 
 
     const [data, setData] = useState({
-        name:'',
-        detail:'',
-        price:''
+        name: '',
+        detail: '',
+        price: ''
     })
 
     useEffect(() => {
@@ -22,12 +22,12 @@ const FormEditProduct = () => {
 
     const loadData = async (id) => {
         read(id)
-        .then((res) => {
-            setData(res.data)
-        })
+            .then((res) => {
+                setData(res.data)
+            })
     }
 
-    const handleChange = (e) =>{
+    const handleChange = (e) => {
         // console.log(e.target.name, e.target.value)
         setData({
             ...data, // จาก usestate
@@ -35,7 +35,7 @@ const FormEditProduct = () => {
         })
     }
 
-    const handleSubmit = async (e) =>{
+    const handleSubmit = async (e) => {
         e.preventDefault()
         console.log(data)
         update(params.id, data)
@@ -46,39 +46,63 @@ const FormEditProduct = () => {
             .catch((err) => console.log(err))
     }
 
-  return (
-    <div>FormEditProduct555
-        <form on onSubmit={handleSubmit}>
-            <input 
-                type='text' 
-                name='name' 
-                onChange={e => handleChange(e)} 
-                placeholder='name' 
-                value={data.name}
-            /> <br/>
+    return (
+        <div>FormEditProduct555
+            <form on onSubmit={handleSubmit}>
+                <input
+                    type='text'
+                    name='name'
+                    onChange={e => handleChange(e)}
+                    placeholder='name'
+                    value={data.name}
+                /> <br />
 
-            <input 
-                type='text' 
-                name='detail' 
-                onChange={e => handleChange(e)} 
-                placeholder='detail'
-                value={data.detail} 
-            /> <br/>
+                <input
+                    type='number'
+                    name='price'
+                    onChange={e => handleChange(e)}
+                    placeholder='price'
+                    value={data.price}
+                /> <br />
 
-            <input 
-                type='number' 
-                name='price' 
-                onChange={e => handleChange(e)} 
-                placeholder='price' 
-                value={data.price}
-            /> <br/>
-            
+                <input
+                    type='number'
+                    name='type'
+                    onChange={e => handleChange(e)}
+                    placeholder='type'
+                    value={data.type}
+                /> <br />
 
-            <button>Submit</button>
-        </form>
-    </div>
-    
-  )
+                <input
+                    type='number'
+                    name='size'
+                    onChange={e => handleChange(e)}
+                    placeholder='size'
+                    value={data.size}
+                /> <br />
+
+                <input
+                    type='number'
+                    name='description'
+                    onChange={e => handleChange(e)}
+                    placeholder='description'
+                    value={data.description}
+                /> <br />
+
+
+
+
+
+
+
+
+
+
+                <button>Submit</button>
+            </form>
+        </div>
+
+    )
 }
 
 export default FormEditProduct

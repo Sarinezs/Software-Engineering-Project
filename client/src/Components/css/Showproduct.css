@@ -1,0 +1,17 @@
+.table  {
+    border: 1px solid black;
+    padding: 15px;
+}
+.table_th{
+    border: 1px solid black;
+    padding: 15px;
+}
+.table_td{
+    border: 1px solid black;
+    padding: 15px;
+}
+
+.table_button{
+    border: 1px solid black;
+    padding: 15px;
+}

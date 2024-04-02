@@ -44,15 +44,25 @@ const Login = () => {
       address: data.get("address")
     }
 
-    
+
 
     login(list_data)
       .then((res) => {
-        dispatch(keep_user_id(res.data.payload.user))
+        
+        // dispatch(keep_user_id(res.data.payload.user))
+        if(res.data === 'password Invalid!!'){
+          alert(res.data)
+        }
+        else if(res.data === 'User not found!!!'){
+          alert(res.data)
+        }
+        else{
+          roleRedirects(res.data.payload.user.role)
+        }
         // console.log(res.data.payload.user)
         // alert(res.data.payload)
         // navi('/Home')
-        roleRedirects(res.data.payload.user.role)
+        
 
       })
       .catch((err) => {
@@ -61,75 +71,86 @@ const Login = () => {
 
   }
 
-  const roleRedirects = (role) =>{
-    if(role === 'admin'){
+  const roleRedirects = (role) => {
+    if (role === 'admin') {
       navi('/product')
-    }else{
+    } else {
       navi('/Home')
     }
   }
 
   return (
-    <ThemeProvider theme={defaultTheme}>
-      <Container component="main" maxWidth="xs" style={{ marginBottom: "100%" }}>
-        <CssBaseline />
-        <Box
-          sx={{
-            marginTop: 8,
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-          }}
-        >
-          <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-            <LockOutlinedIcon />
-          </Avatar>
-          <Typography component="h1" variant="h5">
-            Sign in
-          </Typography>
-          <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
-            <TextField
-              margin="normal"
-              required
-              fullWidth
-              id="email"
-              label="Email Address"
-              name="email"
-              autoComplete="email"
-              autoFocus
-            />
-            <TextField
-              margin="normal"
-              required
-              fullWidth
-              name="password"
-              label="Password"
-              type="password"
-              id="password"
-              autoComplete="current-password"
-            />
+    <div className='brand' style={{ marginBottom: "100%" }}>
+      <nav className='navi'>
+        <ul class="menu_left">
+          <li>
+            <div class="logo">
+              <img src="https://i.ibb.co/zxVxxrR/logosketchuw.png" title="" alt="" width="124"></img>
+            </div>
+          </li>
 
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              sx={{ mt: 3, mb: 2 }}
-            >
-              Sign In
-            </Button>
-            <Grid container>
+        </ul>
 
-              <Grid item>
-                <Link href="/" variant="body2">
-                  {"Don't have an account? Sign Up"}
-                </Link>
+      </nav>
+      <ThemeProvider theme={defaultTheme}>
+        <Container component="main" maxWidth="xs">
+          <CssBaseline />
+          <Box
+            sx={{
+              marginTop: 8,
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+            }}
+          >
+
+            <Typography component="h1" variant="h5">
+              Sign in
+            </Typography>
+            <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+              <TextField
+                margin="normal"
+                required
+                fullWidth
+                id="email"
+                label="Email Address"
+                name="email"
+                autoComplete="email"
+                autoFocus
+              />
+              <TextField
+                margin="normal"
+                required
+                fullWidth
+                name="password"
+                label="Password"
+                type="password"
+                id="password"
+                autoComplete="current-password"
+              />
+
+              <Button
+                type="submit"
+                fullWidth
+                variant="contained"
+                sx={{ mt: 3, mb: 2 }}
+              >
+                Sign In
+              </Button>
+              <Grid container>
+
+                <Grid item>
+                  <Link href="/" variant="body2">
+                    {"Don't have an account? Sign Up"}
+                  </Link>
+                </Grid>
               </Grid>
-            </Grid>
+            </Box>
           </Box>
-        </Box>
-        {/* <Copyright sx={{ mt: 8, mb: 4 }} /> */}
-      </Container>
-    </ThemeProvider>
+          {/* <Copyright sx={{ mt: 8, mb: 4 }} /> */}
+        </Container>
+      </ThemeProvider>
+    </div>
   );
 }
 

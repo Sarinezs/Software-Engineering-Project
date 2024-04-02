@@ -11,6 +11,9 @@ import { Link } from "react-router-dom";
 
 import PeopleOutlinedIcon from "@mui/icons-material/PeopleOutlined";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
+import LogoutIcon from '@mui/icons-material/Logout';
+
+
 const SideBar = () => {
   const [isCollapsed, setisCollapsed] = useState(false);
   const [toggled, setToggled] = useState(false);
@@ -107,6 +110,10 @@ const SideBar = () => {
                 </Link>
                 
               </SubMenu>
+              <div>
+                <a href="/Login"><LogoutIcon style={{marginLeft:"10%"}}/></a>
+              </div>
+              
             </Menu>
 
             <div
