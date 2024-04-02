@@ -10,6 +10,8 @@ import ButtonBase from '@mui/material/ButtonBase';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import IconButton from '@mui/material/IconButton';
 import { cart_create } from '../../../Functions/cart';
+import Button from '@mui/material/Button';
+
 
 const Productdetail = () => {
     const [data, setData] = useState({
@@ -57,33 +59,6 @@ const Productdetail = () => {
                             </div>
                         </li>
 
-
-                        <li>
-                            <a href="/Home">ALL PRODUCT</a>
-                        </li>
-
-
-                        <li>
-                            <a href="/Footwear">FOOTWEAR</a>
-
-                        </li>
-
-
-                        <li>
-                            <a href="/Bag">BAGS</a>
-                            <ul class="drop-menu">
-
-                            </ul>
-                        </li>
-
-
-                        <li>
-                            <a href="/access">ACCESSORIES</a>
-                        </li>
-
-
-
-
                     </ul>
 
 
@@ -127,44 +102,43 @@ const Productdetail = () => {
                                 sx={{
                                     p: 2,
                                     margin: 'auto',
-                                    maxWidth: 450,
+                                    maxWidth: '100%',
                                     flexGrow: 1,
-                                    backgroundColor: (theme) => theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+                                    backgroundColor: (theme) => theme.palette.mode === 'dark' ? '#1A2#027' : '#fff',
                                 }}
 
                             >
                                 <Grid container spacing={2}>
                                     <Grid item>
-                                        <IconButton onClick={handleSubmit} style={{marginLeft:"350px"}} color="primary" aria-label="add to shopping cart">
-                                            <AddShoppingCartIcon />
-                                        </IconButton>
+                                        
                                         <ButtonBase sx={{ width: 500, height: 500 }} style={{ margin: "10px" }}>
                                             {/* <Img alt="complex" src="https://d2cva83hdk3bwc.cloudfront.net/nike-mac-attack-qs-sp-travis-scott-1.jpg" /> */}
-                                            <img src={'http://localhost:5000/' + data.file} height={450} width={400} style={{ marginRight: "auto" }} />
+                                            <img src={'http://localhost:5000/' + data.file} height={400} width={400} style={{ marginRight: "auto" }} />
                                         </ButtonBase>
                                     </Grid>
                                     <Grid item xs={12} sm container>
                                         <Grid item xs container direction="column" spacing={2}>
                                             <Grid item xs>
-                                                <Typography gutterBottom variant="subtitle1" component="div">
+                                                <br/>
+                                                <br/>
+                                                <Typography gutterBottom variant="h3" component="div">
                                                     {data.name}
                                                 </Typography>
-                                                <Typography variant="body2" gutterBottom>
-                                                    si{data.size}
+                                                <Grid item>
+                                                    <Typography variant="h4" component="div">
+                                                        ฿{data.price}
+                                                    </Typography>
+                                                </Grid>
+                                                <Typography variant="subtitle1" gutterBottom>
+                                                    size {data.size}
                                                 </Typography>
 
                                             </Grid>
-                                            <Grid item>
-                                                <Typography sx={{ cursor: 'pointer' }} variant="body2">
-                                                    Remove
-                                                </Typography>
-                                            </Grid>
+                                            <IconButton onClick={handleSubmit} style={{marginLeft:"350px"}} color="primary" aria-label="add to shopping cart">
+                                                <Button variant="contained">Add to Cart</Button>
+                                            </IconButton>
                                         </Grid>
-                                        <Grid item>
-                                            <Typography variant="subtitle1" component="div">
-                                                ${data.price}
-                                            </Typography>
-                                        </Grid>
+                                        
                                     </Grid>
                                 </Grid>
                             </Paper>
