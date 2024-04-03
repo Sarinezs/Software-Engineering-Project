@@ -44,6 +44,13 @@ const Login = () => {
       address: data.get("address")
     }
 
+    const roleRedirects = (role) => {
+      if (role === 'admin') {
+        navi('/product')
+      } else {
+        navi('/Home')
+      }
+    }
 
 
     login(list_data)
@@ -71,13 +78,7 @@ const Login = () => {
 
   }
 
-  const roleRedirects = (role) => {
-    if (role === 'admin') {
-      navi('/product')
-    } else {
-      navi('/Home')
-    }
-  }
+  
 
   return (
     <div className='brand' style={{ marginBottom: "100%" }}>

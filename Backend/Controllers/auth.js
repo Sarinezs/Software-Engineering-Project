@@ -5,26 +5,6 @@ const jwt = require('jsonwebtoken')
 
 exports.register = async (req, res) => {
     try {
-        // 1. CheckUser
-        // const { name, password } = req.body
-        // console.log(req.body)
-
-        // var user = await User.findOne({ name })
-        // 2.Ecrypt
-        // const salt = await bcrypt.genSalt(10)
-        // user = new User({
-        //     name,
-        //     password
-        // })
-        // user.password = await bcrypt.hash(password, salt)
-
-        // // 3.Save
-        // await user.save()
-        // res.send('Register Success')
-
-        // console.log(user)
-        // // res.send(req.body)
-
 
         const { firstname, lastname, phone, email, password, address } = req.body
         console.log(req.body)
@@ -71,9 +51,7 @@ exports.login = async (req, res) => {
                 // console.log("password invalid")
                 return res.send('password Invalid!!').status(400)
             }
-
             // 2.Payload
-
             var payload = {
                 user: {
                     firstname: user.firstname,

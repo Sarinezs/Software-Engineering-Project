@@ -18,7 +18,6 @@ import LogoutIcon from '@mui/icons-material/Logout';
 const Productdetail = () => {
     const navi = useNavigate()
 
-
     const [data, setData] = useState({
         name: '',
         price: '',

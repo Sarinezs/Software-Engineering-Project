@@ -102,43 +102,6 @@ const ProductList = () => {
                 <div>
                     <div className="cover" style={{ marginTop: "20px" }}>
 
-                        {/* {
-                            data.filter((product) => product.name.toLowerCase().includes(query)).map((product) => (
-                                <h3>{product.name}</h3>
-                            ))
-                        } */}
-
-                        {/* {
-                            data ? data.map((item, index) =>
-                                
-                                <div style={{ maxWidth: "200px", marginRight: "160px  " }}>
-
-                                    <ButtonBase onClick={() => { check(item._id) }}>
-
-                                        <ul>
-                                            <ul>
-
-                                                <img src={'http://localhost:5000/' + item.file} height={250} width={250} />
-                                                <div>
-                                                    <h3>
-                                                        {item.name}
-
-                                                    </h3>
-
-                                                    <p>{item.description}</p>
-                                                    <p>Price: ฿{item.price}</p>
-
-                                                </div>
-                                            </ul>
-                                        </ul>
-                                    </ButtonBase>
-
-
-                                </div>
-                            ) : null
-                        } */}
-                        {/* {data[0].name} */}
-
                         {
                             data ? data.filter((product) => product.name.toLowerCase().includes(query)).map((item, index) =>
 
