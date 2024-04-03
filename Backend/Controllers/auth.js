@@ -8,7 +8,7 @@ exports.register = async (req, res) => {
         // 1. CheckUser
         // const { name, password } = req.body
         // console.log(req.body)
-        
+
         // var user = await User.findOne({ name })
         // 2.Ecrypt
         // const salt = await bcrypt.genSalt(10)
@@ -25,7 +25,7 @@ exports.register = async (req, res) => {
         // console.log(user)
         // // res.send(req.body)
 
-        
+
         const { firstname, lastname, phone, email, password, address } = req.body
         console.log(req.body)
         var user = await User.findOne({ email })
@@ -65,9 +65,9 @@ exports.login = async (req, res) => {
         const { email, password } = req.body
         var user = await User.findOneAndUpdate({ email }, { new: true })
         // console.log(user)
-        if(user){
+        if (user) {
             const isMatch = await bcrypt.compare(password, user.password)
-            if(!isMatch){
+            if (!isMatch) {
                 // console.log("password invalid")
                 return res.send('password Invalid!!').status(400)
             }
@@ -75,22 +75,22 @@ exports.login = async (req, res) => {
             // 2.Payload
 
             var payload = {
-                user:{
-                    firstname:user.firstname,
-                    lastname:user.lastname,
-                    phone:user.phone,
-                    email:user.email,
-                    role:user.role,
-                    address:user.address,
+                user: {
+                    firstname: user.firstname,
+                    lastname: user.lastname,
+                    phone: user.phone,
+                    email: user.email,
+                    role: user.role,
+                    address: user.address,
                 }
             }
             // 3. Generate token
-            jwt.sign(payload, 'jwtsecret', { expiresIn:'1d' }, (err, token) => {
-                if(err) throw err;
-                res.json({token, payload})
+            jwt.sign(payload, 'jwtsecret', { expiresIn: '1d' }, (err, token) => {
+                if (err) throw err;
+                res.json({ token, payload })
             })
-            
-        }else{
+
+        } else {
             return res.send('User not found!!!').status(400)
         }
     }
@@ -100,13 +100,28 @@ exports.login = async (req, res) => {
     }
 }
 
-exports.Checkuser = async (req, res) =>{
-    try{
+exports.Checkuser = async (req, res) => {
+    try {
         // const id = req.params.id
         const listuser = await User.find({}).exec()
         res.send(listuser)
     }
-    catch(err){
+    catch (err) {
         res.status(500).send('Checkuser error')
+    }
+}
+
+exports.update = async (req, res) => {
+    try {
+        const user_email = req.body.email
+        // console.log(user_email)
+        const updated = await User
+            .findOneAndUpdate({ email: user_email }, req.body, { new: true })
+            .exec()
+        
+        res.send(updated)
+    }catch(err){
+        console.log(err)
+        res.status(500).send('u_update Error')
     }
 }

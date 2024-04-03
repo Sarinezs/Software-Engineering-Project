@@ -28,6 +28,7 @@ const Productdetail = () => {
         file: '',
     })
     const params = useParams()
+    console.log(params.id)
 
     useEffect(() => {
         loadData(params.id)

@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
 
-const {register, login, Checkuser} = require('../Controllers/auth')
+const {register, login, Checkuser, update} = require('../Controllers/auth')
 
 
 
@@ -13,5 +13,6 @@ router.post('/login', login)
 
 router.get('/Checkuser', Checkuser)
 
+router.put('/user_update', update)
 
 module.exports = router

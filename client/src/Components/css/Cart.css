@@ -146,7 +146,7 @@
 
 .all-grid{
     display: grid;
-    grid-template-columns: auto  ;
+    grid-template-columns: auto auto ;
     grid-template-rows: auto;
 }
 
@@ -158,7 +158,5 @@
 }
 
 .result-grid{
-    display: grid;
-    grid-template-columns: auto  ;
     
 }

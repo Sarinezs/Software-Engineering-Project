@@ -65,7 +65,7 @@ const Payment = () => {
         //         console.log(res.data)
         //     })
         //     .catch((err) => console.log("Order Error"))
-        save()
+        // save()
     }
 
     return (

@@ -1,9 +1,6 @@
-import React from 'react'
+import React, { useState, useEffect} from 'react'
 import '../../css/Profile.css'
 import TextField from '@mui/material/TextField';
-import Avatar from '@mui/material/Avatar';
-import Stack from '@mui/material/Stack';
-import { deepOrange, deepPurple } from '@mui/material/colors';
 import Button from '@mui/material/Button';
 
 import { useSelector } from 'react-redux';
@@ -11,15 +8,54 @@ import { useNavigate } from 'react-router-dom';
 
 import LogoutIcon from '@mui/icons-material/Logout';
 
+import { update } from '../../../Functions/auth';
+
+import { useDispatch } from 'react-redux';
+import { keep_user_id } from '../../../store/store_current_user';
+
 
 const Profile = () => {
     const navi = useNavigate()
+    const dispatch = useDispatch();
+
+    const [data, setData] = useState({
+        firstname: '',
+        lastname: '',
+        phone: '',
+        email: '',
+        role: '',
+        address: '',
+    })
+
+    useEffect(() =>{
+        setData(c_user.users.user)
+    }, [])
 
     const c_user = useSelector((state) => ({ ...state }))
-    console.log(c_user.users.user)
+    // console.log(data)
+    // setData(c_user.users.user)
+    // console.log(c_user.users.user)
 
     const warp = (name) => {
         navi("/" + name)
+    }
+
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        // console.log(name, " ", value)
+        setData(prevData => ({
+            ...prevData,
+            [name]: value
+        }));
+    };
+
+    const submit = (data) =>{
+        update(data)
+            .then((res) => {
+                dispatch(keep_user_id(res.data))
+                alert("Change Success")
+            })
+            .catch((err) => console.log(err))
     }
 
     return (
@@ -83,7 +119,7 @@ const Profile = () => {
                             <h3>Firstname</h3>
                         </div>
 
-                        <TextField value={c_user.users.user.firstname} style={{ width: "400px" }} id="outlined-basic" label="Firstname" variant="outlined" type='text' /><br />
+                        <TextField name='firstname' onChange={handleInputChange} value={data.firstname} style={{ width: "400px" }} id="outlined-basic" label="Firstname" variant="outlined" type='text' /><br />
                     </div>
 
                     <div className='text' >
@@ -91,30 +127,30 @@ const Profile = () => {
                             <h3>Lastname</h3>
                         </div>
 
-                        <TextField value={c_user.users.user.lastname} style={{ width: "400px" }} id="outlined-basic" label="Lastname" variant="outlined" type='text' /><br />
+                        <TextField name='lastname' onChange={handleInputChange} value={data.lastname} style={{ width: "400px" }} id="outlined-basic" label="Lastname" variant="outlined" type='text' /><br />
                     </div>
 
                     <div className='text' >
                         <div className='email'>
                             <h3>E-mail</h3>
                         </div>
-                        <TextField value={c_user.users.user.email} style={{ width: "400px" }} id="outlined-basic" label="E-mail" variant="outlined" type='email' /><br />
+                        <TextField name='email' onChange={handleInputChange} value={data.email} style={{ width: "400px" }} id="outlined-basic" label="E-mail" variant="outlined" type='email' /><br />
                     </div>
 
                     <div className='text' >
                         <div className='tel'>
                             <h3>Tel.</h3>
                         </div>
-                        <TextField value={c_user.users.user.phone} style={{ width: "400px" }} id="outlined-basic" label="Tel." variant="outlined" type='tel' /><br />
+                        <TextField name='phone' onChange={handleInputChange} value={data.phone} style={{ width: "400px" }} id="outlined-basic" label="Tel." variant="outlined" type='tel' /><br />
                     </div>
 
                     <div className='text' >
                         <div className='address'>
                             <h3>Address</h3>
                         </div>
-                        <TextField value={c_user.users.user.address} style={{ width: "400px" }} id="outlined-basic" label="Address" variant="outlined" type='text' /><br />
+                        <TextField name='address' onChange={handleInputChange} value={data.address} style={{ width: "400px" }} id="outlined-basic" label="Address" variant="outlined" type='text' /><br />
                     </div>
-                    <Button variant="contained">Edit</Button>
+                    <Button onClick={() => {submit(data)}} variant="contained">Edit</Button>
 
                 </div>
             </div>
